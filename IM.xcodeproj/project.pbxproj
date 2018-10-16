@@ -44,6 +44,8 @@
 		0EB7A4D0217608BD0075C750 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A4B0217608BD0075C750 /* GCDAsyncUdpSocket.m */; };
 		0EB7A4D1217608BD0075C750 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A4B1217608BD0075C750 /* GCDAsyncSocket.m */; };
 		0EB7A4D2217608BD0075C750 /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 0EB7A4B4217608BD0075C750 /* README.markdown */; };
+		0EB7A53B21760C180075C750 /* HEMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A53A21760C180075C750 /* HEMessage.m */; };
+		0EB7A53E21760E010075C750 /* HEIMSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A53D21760E010075C750 /* HEIMSDK.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +129,21 @@
 		0EB7A4B2217608BD0075C750 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
 		0EB7A4B3217608BD0075C750 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
 		0EB7A4B4217608BD0075C750 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
+		0EB7A53721760BC20075C750 /* HEChatManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEChatManagerProtocol.h; sourceTree = "<group>"; };
+		0EB7A53921760C180075C750 /* HEMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEMessage.h; sourceTree = "<group>"; };
+		0EB7A53A21760C180075C750 /* HEMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HEMessage.m; sourceTree = "<group>"; };
+		0EB7A53C21760E010075C750 /* HEIMSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEIMSDK.h; sourceTree = "<group>"; };
+		0EB7A53D21760E010075C750 /* HEIMSDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HEIMSDK.m; sourceTree = "<group>"; };
+		0EB7A53F21760E960075C750 /* HELoginManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HELoginManagerProtocol.h; sourceTree = "<group>"; };
+		0EB7A54021760EC40075C750 /* HEConversationManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEConversationManagerProtocol.h; sourceTree = "<group>"; };
+		0EB7A541217610030075C750 /* HEMediaManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEMediaManagerProtocol.h; sourceTree = "<group>"; };
+		0EB7A5422176107D0075C750 /* HEChatroomManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEChatroomManagerProtocol.h; sourceTree = "<group>"; };
+		0EB7A543217610980075C750 /* HEDocTranscodingManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEDocTranscodingManagerProtocol.h; sourceTree = "<group>"; };
+		0EB7A544217611D90075C750 /* HEMessageContentProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEMessageContentProtocol.h; sourceTree = "<group>"; };
+		0EB7A545217612020075C750 /* HERedPacketManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HERedPacketManagerProtocol.h; sourceTree = "<group>"; };
+		0EB7A546217612140075C750 /* HEResourceManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEResourceManagerProtocol.h; sourceTree = "<group>"; };
+		0EB7A5472176122E0075C750 /* HETeamManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HETeamManagerProtocol.h; sourceTree = "<group>"; };
+		0EB7A548217612460075C750 /* HEUserManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEUserManagerProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,9 +221,13 @@
 		0EB7A46F217608BD0075C750 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				0EB7A5492176148F0075C750 /* Sender */,
+				0EB7A53821760BF20075C750 /* Model */,
 				0EB7A470217608BD0075C750 /* Tools */,
 				0EB7A473217608BD0075C750 /* Category */,
 				0EB7A474217608BD0075C750 /* Protocols */,
+				0EB7A53C21760E010075C750 /* HEIMSDK.h */,
+				0EB7A53D21760E010075C750 /* HEIMSDK.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -230,6 +251,17 @@
 		0EB7A474217608BD0075C750 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				0EB7A53F21760E960075C750 /* HELoginManagerProtocol.h */,
+				0EB7A548217612460075C750 /* HEUserManagerProtocol.h */,
+				0EB7A53721760BC20075C750 /* HEChatManagerProtocol.h */,
+				0EB7A54021760EC40075C750 /* HEConversationManagerProtocol.h */,
+				0EB7A5472176122E0075C750 /* HETeamManagerProtocol.h */,
+				0EB7A5422176107D0075C750 /* HEChatroomManagerProtocol.h */,
+				0EB7A545217612020075C750 /* HERedPacketManagerProtocol.h */,
+				0EB7A546217612140075C750 /* HEResourceManagerProtocol.h */,
+				0EB7A543217610980075C750 /* HEDocTranscodingManagerProtocol.h */,
+				0EB7A541217610030075C750 /* HEMediaManagerProtocol.h */,
+				0EB7A544217611D90075C750 /* HEMessageContentProtocol.h */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -357,6 +389,22 @@
 				0EB7A4B3217608BD0075C750 /* GCDAsyncSocket.h */,
 			);
 			path = GCD;
+			sourceTree = "<group>";
+		};
+		0EB7A53821760BF20075C750 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0EB7A53921760C180075C750 /* HEMessage.h */,
+				0EB7A53A21760C180075C750 /* HEMessage.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0EB7A5492176148F0075C750 /* Sender */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sender;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -488,6 +536,8 @@
 				0EB7A4C5217608BD0075C750 /* SDWebImageCompat.m in Sources */,
 				0EB7A4BB217608BD0075C750 /* FMDatabasePool.m in Sources */,
 				0EB7A4BC217608BD0075C750 /* FMResultSet.m in Sources */,
+				0EB7A53B21760C180075C750 /* HEMessage.m in Sources */,
+				0EB7A53E21760E010075C750 /* HEIMSDK.m in Sources */,
 				0EB7A4BF217608BD0075C750 /* SDWebImageManager.m in Sources */,
 				0EB7A3E6217604C40075C750 /* AppDelegate.m in Sources */,
 				0EB7A4C3217608BD0075C750 /* UIImage+GIF.m in Sources */,
