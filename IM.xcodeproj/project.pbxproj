@@ -46,6 +46,7 @@
 		0EB7A4D2217608BD0075C750 /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 0EB7A4B4217608BD0075C750 /* README.markdown */; };
 		0EB7A53B21760C180075C750 /* HEMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A53A21760C180075C750 /* HEMessage.m */; };
 		0EB7A53E21760E010075C750 /* HEIMSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A53D21760E010075C750 /* HEIMSDK.m */; };
+		0EB7A54C2176170A0075C750 /* HELoginClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A54B2176170A0075C750 /* HELoginClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,8 @@
 		0EB7A546217612140075C750 /* HEResourceManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEResourceManagerProtocol.h; sourceTree = "<group>"; };
 		0EB7A5472176122E0075C750 /* HETeamManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HETeamManagerProtocol.h; sourceTree = "<group>"; };
 		0EB7A548217612460075C750 /* HEUserManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEUserManagerProtocol.h; sourceTree = "<group>"; };
+		0EB7A54A2176170A0075C750 /* HELoginClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HELoginClient.h; sourceTree = "<group>"; };
+		0EB7A54B2176170A0075C750 /* HELoginClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HELoginClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -396,6 +399,8 @@
 			children = (
 				0EB7A53921760C180075C750 /* HEMessage.h */,
 				0EB7A53A21760C180075C750 /* HEMessage.m */,
+				0EB7A54A2176170A0075C750 /* HELoginClient.h */,
+				0EB7A54B2176170A0075C750 /* HELoginClient.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -518,6 +523,7 @@
 				0EB7A4B5217608BD0075C750 /* MD5Tool.m in Sources */,
 				0EB7A4C8217608BD0075C750 /* SDWebImageDownloaderOperation.m in Sources */,
 				0EB7A4CD217608BD0075C750 /* UIView+WebCacheOperation.m in Sources */,
+				0EB7A54C2176170A0075C750 /* HELoginClient.m in Sources */,
 				0EB7A4CB217608BD0075C750 /* NSImage+WebCache.m in Sources */,
 				0EB7A3E9217604C40075C750 /* ViewController.m in Sources */,
 				0EB7A4BA217608BD0075C750 /* FMDatabase.m in Sources */,

@@ -9,5 +9,12 @@
 #ifndef HELoginManagerProtocol_h
 #define HELoginManagerProtocol_h
 
+/**
+ *  登录协议
+ */
+@protocol HELoginManager <NSObject>
+
+
+@end
 
 #endif /* HELoginManagerProtocol_h */
