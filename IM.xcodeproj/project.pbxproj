@@ -16,7 +16,6 @@
 		0EB7A3FE217604C50075C750 /* IMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A3FD217604C50075C750 /* IMTests.m */; };
 		0EB7A46E217605820075C750 /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0EB7A46D217605820075C750 /* test.jpg */; };
 		0EB7A4B5217608BD0075C750 /* MD5Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A471217608BD0075C750 /* MD5Tool.m */; };
-		0EB7A4B6217608BD0075C750 /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 0EB7A477217608BD0075C750 /* README.markdown */; };
 		0EB7A4B7217608BD0075C750 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0EB7A478217608BD0075C750 /* LICENSE.txt */; };
 		0EB7A4B8217608BD0075C750 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A47C217608BD0075C750 /* FMDatabaseQueue.m */; };
 		0EB7A4B9217608BD0075C750 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A47F217608BD0075C750 /* FMDatabaseAdditions.m */; };
@@ -74,7 +73,6 @@
 		0EB7A46D217605820075C750 /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
 		0EB7A471217608BD0075C750 /* MD5Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5Tool.m; sourceTree = "<group>"; };
 		0EB7A472217608BD0075C750 /* MD5Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Tool.h; sourceTree = "<group>"; };
-		0EB7A477217608BD0075C750 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
 		0EB7A478217608BD0075C750 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		0EB7A47B217608BD0075C750 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		0EB7A47C217608BD0075C750 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
@@ -249,7 +247,6 @@
 		0EB7A476217608BD0075C750 /* FMDB */ = {
 			isa = PBXGroup;
 			children = (
-				0EB7A477217608BD0075C750 /* README.markdown */,
 				0EB7A478217608BD0075C750 /* LICENSE.txt */,
 				0EB7A479217608BD0075C750 /* src */,
 			);
@@ -444,7 +441,6 @@
 			files = (
 				0EB7A4B7217608BD0075C750 /* LICENSE.txt in Resources */,
 				0EB7A3F1217604C50075C750 /* LaunchScreen.storyboard in Resources */,
-				0EB7A4B6217608BD0075C750 /* README.markdown in Resources */,
 				0EB7A4BD217608BD0075C750 /* LICENSE in Resources */,
 				0EB7A3EE217604C50075C750 /* Assets.xcassets in Resources */,
 				0EB7A4D2217608BD0075C750 /* README.markdown in Resources */,
