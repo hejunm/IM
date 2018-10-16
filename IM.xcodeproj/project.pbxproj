@@ -14,6 +14,7 @@
 		0EB7A2EA2175F21F0075C750 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EB7A2E82175F21F0075C750 /* LaunchScreen.storyboard */; };
 		0EB7A2ED2175F21F0075C750 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A2EC2175F21F0075C750 /* main.m */; };
 		0EB7A2F72175F21F0075C750 /* IMUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A2F62175F21F0075C750 /* IMUITests.m */; };
+		0EB7A3082175F2AF0075C750 /* MD5Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A3042175F2AF0075C750 /* MD5Tool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		0EB7A2F22175F21F0075C750 /* IMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EB7A2F62175F21F0075C750 /* IMUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMUITests.m; sourceTree = "<group>"; };
 		0EB7A2F82175F21F0075C750 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0EB7A3042175F2AF0075C750 /* MD5Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5Tool.m; sourceTree = "<group>"; };
+		0EB7A3052175F2AF0075C750 /* MD5Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Tool.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		0EB7A2DC2175F21E0075C750 /* IM */ = {
 			isa = PBXGroup;
 			children = (
+				0EB7A3022175F2AF0075C750 /* Core */,
 				0EB7A3012175F2290075C750 /* Source */,
 				0EB7A2DD2175F21E0075C750 /* AppDelegate.h */,
 				0EB7A2DE2175F21E0075C750 /* AppDelegate.m */,
@@ -109,6 +113,39 @@
 				0EB7A2EB2175F21F0075C750 /* Info.plist */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		0EB7A3022175F2AF0075C750 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				0EB7A3032175F2AF0075C750 /* Tools */,
+				0EB7A3062175F2AF0075C750 /* Category */,
+				0EB7A3072175F2AF0075C750 /* Protocols */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		0EB7A3032175F2AF0075C750 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				0EB7A3042175F2AF0075C750 /* MD5Tool.m */,
+				0EB7A3052175F2AF0075C750 /* MD5Tool.h */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		0EB7A3062175F2AF0075C750 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		0EB7A3072175F2AF0075C750 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EB7A3082175F2AF0075C750 /* MD5Tool.m in Sources */,
 				0EB7A2E22175F21E0075C750 /* ViewController.m in Sources */,
 				0EB7A2ED2175F21F0075C750 /* main.m in Sources */,
 				0EB7A2DF2175F21E0075C750 /* AppDelegate.m in Sources */,
