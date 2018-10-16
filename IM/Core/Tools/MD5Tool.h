@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param data “”
  @return 返回data的MD5哈希值，长度32，大写
  */
-+ (NSString *)md5ForData:(NSData *)data;
++ (NSString *)md5OfData:(NSData *)data;
 
 /**
  生成字符串的md5值
@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param string 字符串
  @return 返回字符串的md5
  */
-+ (NSString *)md5ForStr:(NSString *)string;
++ (NSString *)md5OfStr:(NSString *)string;
 
 /**
  生成指定file的md5
@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param filePath 文件路径
  @return MD5哈希值，长度32，大写
  */
-+ (NSString *)md5ForFile:(NSString *)filePath;
++ (NSString *)md5OfFile:(NSString *)filePath;
 @end
 
 NS_ASSUME_NONNULL_END

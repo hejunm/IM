@@ -11,7 +11,7 @@
 
 @implementation MD5Tool
 
-+ (NSString *)md5ForData:(NSData *)data{
++ (NSString *)md5OfData:(NSData *)data{
     unsigned char digest[CC_MD5_DIGEST_LENGTH];
     CC_MD5(data.bytes, (unsigned int)data.length, digest);
     NSMutableString *ms = [NSMutableString string];
@@ -21,7 +21,7 @@
     return [ms copy];
 }
 
-+ (NSString *)md5ForStr:(NSString *)string{
++ (NSString *)md5OfStr:(NSString *)string{
     unsigned char digest[CC_MD5_DIGEST_LENGTH];
     CC_MD5([string UTF8String], (unsigned int)strlen([string UTF8String]), digest);
     NSMutableString *ms = [NSMutableString string];
@@ -31,7 +31,7 @@
     return ms;
 }
 
-+ (NSString *)md5ForFile:(NSString *)filePath{
++ (NSString *)md5OfFile:(NSString *)filePath{
     NSFileHandle *handle = [NSFileHandle fileHandleForReadingAtPath:filePath];
     if( handle== nil ) {
         return nil; // file didnt exist
