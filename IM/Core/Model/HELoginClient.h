@@ -63,7 +63,7 @@ typedef NS_ENUM(NSInteger, HELoginClientType) {
 /**
  *  操作系统
  */
-@property (nullable,nonatomic,copy,readonly)NSString    *os;
+@property (nullable,nonatomic,copy)NSString *os;
 
 /**
  *  登录时间
