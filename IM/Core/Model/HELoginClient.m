@@ -11,3 +11,7 @@
 @implementation HELoginClient
 
 @end
+
+@implementation HEAutoLoginData
+
+@end
