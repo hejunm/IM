@@ -58,17 +58,17 @@ typedef NS_ENUM(NSInteger, HELoginClientType) {
 /**
  *  类型
  */
-@property (nonatomic,assign,readonly)HELoginClientType  type;
+@property (nonatomic,assign)HELoginClientType  type;
 
 /**
  *  操作系统
  */
-@property (nullable,nonatomic,copy,readonly)NSString    *os;
+@property (nullable,nonatomic,copy)NSString *os;
 
 /**
  *  登录时间
  */
-@property (nonatomic,assign,readonly)NSTimeInterval     timestamp;
+@property (nonatomic,assign)NSTimeInterval timestamp;
 @end
 
 NS_ASSUME_NONNULL_END
