@@ -16,6 +16,8 @@
 		0E3FCED821772A3D0025DD61 /* HERecentSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCED721772A3D0025DD61 /* HERecentSession.m */; };
 		0E3FCEDC21772C270025DD61 /* HEDeleteMessagesOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCEDB21772C270025DD61 /* HEDeleteMessagesOption.m */; };
 		0E3FCEDF21772F1B0025DD61 /* HEMessageSearchOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCEDE21772F1B0025DD61 /* HEMessageSearchOption.m */; };
+		0E3FCEE52177363E0025DD61 /* HECacheQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCEE42177363E0025DD61 /* HECacheQuery.m */; };
+		0E3FCEE821773A0D0025DD61 /* HEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCEE721773A0D0025DD61 /* HEUser.m */; };
 		0EB7A3E6217604C40075C750 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A3E5217604C40075C750 /* AppDelegate.m */; };
 		0EB7A3E9217604C40075C750 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A3E8217604C40075C750 /* ViewController.m */; };
 		0EB7A3EC217604C40075C750 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EB7A3EA217604C40075C750 /* Main.storyboard */; };
@@ -87,6 +89,10 @@
 		0E3FCEDB21772C270025DD61 /* HEDeleteMessagesOption.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HEDeleteMessagesOption.m; sourceTree = "<group>"; };
 		0E3FCEDD21772F1B0025DD61 /* HEMessageSearchOption.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEMessageSearchOption.h; sourceTree = "<group>"; };
 		0E3FCEDE21772F1B0025DD61 /* HEMessageSearchOption.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HEMessageSearchOption.m; sourceTree = "<group>"; };
+		0E3FCEE32177363E0025DD61 /* HECacheQuery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HECacheQuery.h; sourceTree = "<group>"; };
+		0E3FCEE42177363E0025DD61 /* HECacheQuery.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HECacheQuery.m; sourceTree = "<group>"; };
+		0E3FCEE621773A0D0025DD61 /* HEUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEUser.h; sourceTree = "<group>"; };
+		0E3FCEE721773A0D0025DD61 /* HEUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HEUser.m; sourceTree = "<group>"; };
 		0EB7A3E1217604C40075C750 /* IM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EB7A3E4217604C40075C750 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0EB7A3E5217604C40075C750 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -468,6 +474,10 @@
 				0E3FCEDB21772C270025DD61 /* HEDeleteMessagesOption.m */,
 				0E3FCEDD21772F1B0025DD61 /* HEMessageSearchOption.h */,
 				0E3FCEDE21772F1B0025DD61 /* HEMessageSearchOption.m */,
+				0E3FCEE32177363E0025DD61 /* HECacheQuery.h */,
+				0E3FCEE42177363E0025DD61 /* HECacheQuery.m */,
+				0E3FCEE621773A0D0025DD61 /* HEUser.h */,
+				0E3FCEE721773A0D0025DD61 /* HEUser.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -609,6 +619,7 @@
 				0EB7A4C9217608BD0075C750 /* NSData+ImageContentType.m in Sources */,
 				0EB7A4CA217608BD0075C750 /* UIImageView+WebCache.m in Sources */,
 				0EB7A4C4217608BD0075C750 /* UIImage+MultiFormat.m in Sources */,
+				0E3FCEE52177363E0025DD61 /* HECacheQuery.m in Sources */,
 				0EB7A4CC217608BD0075C750 /* SDImageCacheConfig.m in Sources */,
 				0EB7A4C2217608BD0075C750 /* SDWebImageDownloader.m in Sources */,
 				0E3FCEB52176D6540025DD61 /* HETCPSender.m in Sources */,
@@ -616,6 +627,7 @@
 				0E3FCEA12176D0470025DD61 /* HEMessageFactory.m in Sources */,
 				0E3FCEDC21772C270025DD61 /* HEDeleteMessagesOption.m in Sources */,
 				0EB7A4BB217608BD0075C750 /* FMDatabasePool.m in Sources */,
+				0E3FCEE821773A0D0025DD61 /* HEUser.m in Sources */,
 				0EB7A4BC217608BD0075C750 /* FMResultSet.m in Sources */,
 				0E3FCEB82176D6850025DD61 /* HEHTTPSender.m in Sources */,
 				0EB7A53B21760C180075C750 /* HEMessage.m in Sources */,

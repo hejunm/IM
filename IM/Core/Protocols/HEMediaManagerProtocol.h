@@ -6,8 +6,14 @@
 //  Copyright © 2018 贺俊孟. All rights reserved.
 //  多媒体管理
 
-#ifndef HEMediaManagerProtocol_h
-#define HEMediaManagerProtocol_h
+//
+//  HEUserManagerProtocol.h
+//  HELib
+//
+//  Created by Netease.
+//  Copyright (c) 2015 Netease. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
 
 
-#endif /* HEMediaManagerProtocol_h */
