@@ -1,13 +1,14 @@
 //
-//  HETCPSender.m
+//  HEDefine.h
 //  IM
 //
 //  Created by jmhe on 2018/10/17.
 //  Copyright © 2018 贺俊孟. All rights reserved.
 //
 
-#import "HETCPSender.h"
+#ifndef HEDefine_h
+#define HEDefine_h
 
-@implementation HETCPSender
+#define TCP_AutoConnectCount 3
 
-@end
+#endif
