@@ -58,6 +58,8 @@
 		0EB7A53B21760C180075C750 /* HEMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A53A21760C180075C750 /* HEMessage.m */; };
 		0EB7A53E21760E010075C750 /* HEIMSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A53D21760E010075C750 /* HEIMSDK.m */; };
 		0EB7A54C2176170A0075C750 /* HELoginClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A54B2176170A0075C750 /* HELoginClient.m */; };
+		0EDE6D342178B02800D38B8E /* HETCPRequestEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE6D332178B02800D38B8E /* HETCPRequestEntity.m */; };
+		0EDE6D372178B05300D38B8E /* HETCPResponseEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE6D362178B05300D38B8E /* HETCPResponseEntity.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,6 +183,10 @@
 		0EB7A548217612460075C750 /* HEUserManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEUserManagerProtocol.h; sourceTree = "<group>"; };
 		0EB7A54A2176170A0075C750 /* HELoginClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HELoginClient.h; sourceTree = "<group>"; };
 		0EB7A54B2176170A0075C750 /* HELoginClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HELoginClient.m; sourceTree = "<group>"; };
+		0EDE6D322178B02800D38B8E /* HETCPRequestEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HETCPRequestEntity.h; sourceTree = "<group>"; };
+		0EDE6D332178B02800D38B8E /* HETCPRequestEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HETCPRequestEntity.m; sourceTree = "<group>"; };
+		0EDE6D352178B05300D38B8E /* HETCPResponseEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HETCPResponseEntity.h; sourceTree = "<group>"; };
+		0EDE6D362178B05300D38B8E /* HETCPResponseEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HETCPResponseEntity.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,7 +289,7 @@
 		0EB7A46F217608BD0075C750 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				0EB7A5492176148F0075C750 /* Sender */,
+				0EB7A5492176148F0075C750 /* Network */,
 				0EB7A53821760BF20075C750 /* Model */,
 				0EB7A470217608BD0075C750 /* Tools */,
 				0EB7A473217608BD0075C750 /* Category */,
@@ -484,13 +490,25 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		0EB7A5492176148F0075C750 /* Sender */ = {
+		0EB7A5492176148F0075C750 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				0E3FCEB22176D6380025DD61 /* HTTP */,
 				0E3FCEB12176D62F0025DD61 /* TCP */,
+				0EDE6D312178AF3200D38B8E /* Model */,
 			);
-			path = Sender;
+			path = Network;
+			sourceTree = "<group>";
+		};
+		0EDE6D312178AF3200D38B8E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0EDE6D322178B02800D38B8E /* HETCPRequestEntity.h */,
+				0EDE6D332178B02800D38B8E /* HETCPRequestEntity.m */,
+				0EDE6D352178B05300D38B8E /* HETCPResponseEntity.h */,
+				0EDE6D362178B05300D38B8E /* HETCPResponseEntity.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -620,7 +638,9 @@
 				0EB7A4C6217608BD0075C750 /* SDWebImagePrefetcher.m in Sources */,
 				0EB7A4C9217608BD0075C750 /* NSData+ImageContentType.m in Sources */,
 				0EB7A4CA217608BD0075C750 /* UIImageView+WebCache.m in Sources */,
+				0EDE6D342178B02800D38B8E /* HETCPRequestEntity.m in Sources */,
 				0EB7A4C4217608BD0075C750 /* UIImage+MultiFormat.m in Sources */,
+				0EDE6D372178B05300D38B8E /* HETCPResponseEntity.m in Sources */,
 				0E3FCEE52177363E0025DD61 /* HECacheQuery.m in Sources */,
 				0EB7A4CC217608BD0075C750 /* SDImageCacheConfig.m in Sources */,
 				0EB7A4C2217608BD0075C750 /* SDWebImageDownloader.m in Sources */,
