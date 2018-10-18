@@ -8,11 +8,30 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HETCPResponseEntity : NSObject
-//响应类型
-//reqID, 标识对某个请求的相应。 如果没有，返回0
-//contendLength
-//contend
+@protocol HETCPRespContentProtocol <NSObject>
+@end
 
+@interface HETCPResponseEntity : NSObject
+
+/**
+ 类似http中的url，标示某个接口
+ */
+@property(nonatomic,assign,readonly)NSUInteger apiCode;
+
+/**
+ 标记某个请求
+ 如果是服务器主动发的请求，则为0
+ */
+@property(nonatomic,assign,readonly)NSUInteger reqId;
+
+/**
+ 消息长度
+ */
+@property(nonatomic,assign,readonly)NSUInteger contentLength;
+
+/**
+ 响应消息内容
+ */
+@property(nonatomic,strong)id<HETCPRespContentProtocol> reqContent;
 
 @end

@@ -42,6 +42,7 @@
     return self;
 }
 
+
 - (void)addDelegate:(id<HETCPHandlerDelegate>)delegate{
     if (delegate && [delegate conformsToProtocol:@protocol(HETCPHandlerDelegate)]) {
         [self.delegates addObject:delegate];
