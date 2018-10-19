@@ -8,16 +8,24 @@
 
 #import "HETCPHandler.h"
 #import "GCDAsyncSocket.h"
+#import "HETCPSocketService.h"
 
 @interface HETCPHandler()<GCDAsyncSocketDelegate>
+
+@property (nonatomic, strong) dispatch_queue_t delegateQueue;
+
 //初始化聊天
-@property (strong , nonatomic) GCDAsyncSocket *chatSocket;
-//所有的代理
-@property (nonatomic, strong) NSMutableArray *delegates;
+@property (strong , nonatomic)GCDAsyncSocket *socket;
+//TCP地址
+@property (nonatomic,copy)NSString *host;
+//TCP端口后
+@property (nonatomic,assign)uint16_t port;
 //心跳定时器
 @property (nonatomic, strong) dispatch_source_t beatTimer;
 //发送心跳次数
 @property (nonatomic, assign) NSInteger sentBeatCount;
+//服务器列表
+@property (nonatomic,strong)NSArray<HETCPSocketService *> *serviceArray;
 
 @end
 
@@ -34,23 +42,69 @@
 
 - (instancetype)init{
     if (self = [super init]) {
-        _chatSocket = [[GCDAsyncSocket alloc]initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
-        [_chatSocket setAutoDisconnectOnClosedReadStream:NO];    //设置默认关闭读取
+        const char *delegateQueueLabel = [[NSString stringWithFormat:@"%p_socketDelegateQueue", self] cStringUsingEncoding:NSUTF8StringEncoding];
+        _delegateQueue = dispatch_queue_create(delegateQueueLabel, DISPATCH_QUEUE_SERIAL);
+        _socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:self.delegateQueue];
+        [_socket setAutoDisconnectOnClosedReadStream:NO];    //设置默认关闭读取
         _connectStatus = HESocketConnectStatus_UnConnected;      //默认状态未连接
-        _delegates = [[NSMutableArray alloc]init];
     }
     return self;
 }
 
+#pragma mark - 连接
+- (void)setHost:(NSString *)host port:(uint16_t)port{
+    self.host = host;
+    self.port = port;
+}
 
-- (void)addDelegate:(id<HETCPHandlerDelegate>)delegate{
-    if (delegate && [delegate conformsToProtocol:@protocol(HETCPHandlerDelegate)]) {
-        [self.delegates addObject:delegate];
+- (BOOL)isConnected{
+    return self.socket.isConnected;
+}
+
+- (void)disconnect{
+    if (!self.socket.isConnected) {
+        return;
+    }
+    [self.socket setDelegate:nil delegateQueue:nil];
+    [self.socket disconnect];
+}
+
+- (void)tryToReconnect{
+    BOOL isNetworkReachable = [InternetReachabilityTool shareInstance].isReachable;
+    if (!isNetworkReachable) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(socketCanNotConnectToService)]) {
+            [self.delegate socketCanNotConnectToService];
+        }
+        return;
     }
 }
 
-- (void)removeDelegate:(id<HETCPHandlerDelegate>)delegate{
-    [self.delegates removeObject:delegate];
+
+#pragma mark - 心跳
+
+
+#pragma mark - 发送数据
+- (void)writeData:(NSData *)data{
+    
 }
+
+#pragma mark - GCDAsyncSocketDelegate
+
+- (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port {
+    DebugLog(@"TCPSocket连接成功...");
+}
+
+- (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)error {
+    DebugLog(@"TCPSocket连接已断开...%@", error);
+    [self tryToReconnect];
+}
+
+- (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag {
+}
+
+- (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
+}
+
+#pragma mark - 接受数据
 
 @end

@@ -18,6 +18,9 @@
 		0E3FCEDF21772F1B0025DD61 /* HEMessageSearchOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCEDE21772F1B0025DD61 /* HEMessageSearchOption.m */; };
 		0E3FCEE52177363E0025DD61 /* HECacheQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCEE42177363E0025DD61 /* HECacheQuery.m */; };
 		0E3FCEE821773A0D0025DD61 /* HEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCEE721773A0D0025DD61 /* HEUser.m */; };
+		0EB61BAE21798D4C00ED53BF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB61BAD21798D4C00ED53BF /* Reachability.m */; };
+		0EB61BB12179904400ED53BF /* InternetReachabilityTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB61BB02179904400ED53BF /* InternetReachabilityTool.m */; };
+		0EB61BB42179B5D400ED53BF /* HETCPSocketService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB61BB32179B5D400ED53BF /* HETCPSocketService.m */; };
 		0EB7A3E6217604C40075C750 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A3E5217604C40075C750 /* AppDelegate.m */; };
 		0EB7A3E9217604C40075C750 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A3E8217604C40075C750 /* ViewController.m */; };
 		0EB7A3EC217604C40075C750 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EB7A3EA217604C40075C750 /* Main.storyboard */; };
@@ -96,6 +99,13 @@
 		0E3FCEE621773A0D0025DD61 /* HEUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEUser.h; sourceTree = "<group>"; };
 		0E3FCEE721773A0D0025DD61 /* HEUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HEUser.m; sourceTree = "<group>"; };
 		0E9D7FEB217754CF00B79A56 /* HEDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEDefine.h; sourceTree = "<group>"; };
+		0EB61BAA21798A4800ED53BF /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		0EB61BAC21798D4C00ED53BF /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		0EB61BAD21798D4C00ED53BF /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		0EB61BAF2179904400ED53BF /* InternetReachabilityTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InternetReachabilityTool.h; sourceTree = "<group>"; };
+		0EB61BB02179904400ED53BF /* InternetReachabilityTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InternetReachabilityTool.m; sourceTree = "<group>"; };
+		0EB61BB22179B5D400ED53BF /* HETCPSocketService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HETCPSocketService.h; sourceTree = "<group>"; };
+		0EB61BB32179B5D400ED53BF /* HETCPSocketService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HETCPSocketService.m; sourceTree = "<group>"; };
 		0EB7A3E1217604C40075C750 /* IM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EB7A3E4217604C40075C750 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0EB7A3E5217604C40075C750 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -232,6 +242,15 @@
 			path = Imp;
 			sourceTree = "<group>";
 		};
+		0EB61BAB21798D4400ED53BF /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				0EB61BAC21798D4C00ED53BF /* Reachability.h */,
+				0EB61BAD21798D4C00ED53BF /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
 		0EB7A3D8217604C40075C750 = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +301,7 @@
 				0EB7A3ED217604C50075C750 /* Assets.xcassets */,
 				0EB7A3EF217604C50075C750 /* LaunchScreen.storyboard */,
 				0EB7A3F2217604C50075C750 /* Info.plist */,
+				0EB61BAA21798A4800ED53BF /* PrefixHeader.pch */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -307,6 +327,8 @@
 			children = (
 				0EB7A471217608BD0075C750 /* MD5Tool.m */,
 				0EB7A472217608BD0075C750 /* MD5Tool.h */,
+				0EB61BAF2179904400ED53BF /* InternetReachabilityTool.h */,
+				0EB61BB02179904400ED53BF /* InternetReachabilityTool.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -339,6 +361,7 @@
 		0EB7A475217608BD0075C750 /* Verdor */ = {
 			isa = PBXGroup;
 			children = (
+				0EB61BAB21798D4400ED53BF /* Reachability */,
 				0EB7A476217608BD0075C750 /* FMDB */,
 				0EB7A486217608BD0075C750 /* SDWebImage */,
 				0EB7A4AD217608BD0075C750 /* CocoaAsyncSocket */,
@@ -464,6 +487,8 @@
 		0EB7A53821760BF20075C750 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0EB61BB22179B5D400ED53BF /* HETCPSocketService.h */,
+				0EB61BB32179B5D400ED53BF /* HETCPSocketService.m */,
 				0EB7A53921760C180075C750 /* HEMessage.h */,
 				0EB7A53A21760C180075C750 /* HEMessage.m */,
 				0EB7A54A2176170A0075C750 /* HELoginClient.h */,
@@ -639,6 +664,7 @@
 				0EB7A4C9217608BD0075C750 /* NSData+ImageContentType.m in Sources */,
 				0EB7A4CA217608BD0075C750 /* UIImageView+WebCache.m in Sources */,
 				0EDE6D342178B02800D38B8E /* HETCPRequestEntity.m in Sources */,
+				0EB61BB12179904400ED53BF /* InternetReachabilityTool.m in Sources */,
 				0EB7A4C4217608BD0075C750 /* UIImage+MultiFormat.m in Sources */,
 				0EDE6D372178B05300D38B8E /* HETCPResponseEntity.m in Sources */,
 				0E3FCEE52177363E0025DD61 /* HECacheQuery.m in Sources */,
@@ -650,6 +676,7 @@
 				0E3FCEDC21772C270025DD61 /* HEDeleteMessagesOption.m in Sources */,
 				0EB7A4BB217608BD0075C750 /* FMDatabasePool.m in Sources */,
 				0E3FCEE821773A0D0025DD61 /* HEUser.m in Sources */,
+				0EB61BAE21798D4C00ED53BF /* Reachability.m in Sources */,
 				0EB7A4BC217608BD0075C750 /* FMResultSet.m in Sources */,
 				0E3FCEB82176D6850025DD61 /* HEHTTPSender.m in Sources */,
 				0EB7A53B21760C180075C750 /* HEMessage.m in Sources */,
@@ -660,6 +687,7 @@
 				0EB7A4C3217608BD0075C750 /* UIImage+GIF.m in Sources */,
 				0EB7A4B9217608BD0075C750 /* FMDatabaseAdditions.m in Sources */,
 				0E3FCEBE217709D80025DD61 /* HESession.m in Sources */,
+				0EB61BB42179B5D400ED53BF /* HETCPSocketService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -819,6 +847,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5V52734ZW;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/IM/Source/PrefixHeader.pch";
 				INFOPLIST_FILE = IM/Source/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -836,6 +866,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5V52734ZW;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/IM/Source/PrefixHeader.pch";
 				INFOPLIST_FILE = IM/Source/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

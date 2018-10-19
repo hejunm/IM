@@ -35,5 +35,5 @@
 /**
  发送消息内容
  */
-@property(nonatomic,strong)id<HETCPReqContentProtocol> reqContent;
+@property(nonatomic,strong)id<HETCPReqContentProtocol> content;
 @end

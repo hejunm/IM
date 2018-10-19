@@ -11,4 +11,10 @@
 
 #define TCP_AutoConnectCount 3
 
+#ifdef DEBUG
+# define DebugLog(...) NSLog(__VA_ARGS__)
+#else
+# define DebugLog(...) {}
+#endif
+
 #endif

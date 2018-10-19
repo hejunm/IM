@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol HETCPRespContentProtocol <NSObject>
-@end
 
 @interface HETCPResponseEntity : NSObject
 
@@ -19,10 +17,10 @@
 @property(nonatomic,assign,readonly)NSUInteger apiCode;
 
 /**
- 标记某个请求
+ 标记某个请求对应的响应
  如果是服务器主动发的请求，则为0
  */
-@property(nonatomic,assign,readonly)NSUInteger reqId;
+@property(nonatomic,assign,readonly)NSUInteger respId;
 
 /**
  消息长度
@@ -32,6 +30,6 @@
 /**
  响应消息内容
  */
-@property(nonatomic,strong)id<HETCPRespContentProtocol> reqContent;
+@property(nonatomic,strong)NSData *content;
 
 @end
