@@ -63,6 +63,8 @@
 		0EB7A54C2176170A0075C750 /* HELoginClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A54B2176170A0075C750 /* HELoginClient.m */; };
 		0EDE6D342178B02800D38B8E /* HETCPRequestEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE6D332178B02800D38B8E /* HETCPRequestEntity.m */; };
 		0EDE6D372178B05300D38B8E /* HETCPResponseEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE6D362178B05300D38B8E /* HETCPResponseEntity.m */; };
+		580D2DB8217B062C001D5200 /* HEMulticastDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 580D2DB7217B062C001D5200 /* HEMulticastDelegate.m */; };
+		580D2DBC217B3CC8001D5200 /* MulticastDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 580D2DBB217B3CC8001D5200 /* MulticastDelegateTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -197,6 +199,9 @@
 		0EDE6D332178B02800D38B8E /* HETCPRequestEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HETCPRequestEntity.m; sourceTree = "<group>"; };
 		0EDE6D352178B05300D38B8E /* HETCPResponseEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HETCPResponseEntity.h; sourceTree = "<group>"; };
 		0EDE6D362178B05300D38B8E /* HETCPResponseEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HETCPResponseEntity.m; sourceTree = "<group>"; };
+		580D2DB6217B062C001D5200 /* HEMulticastDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEMulticastDelegate.h; sourceTree = "<group>"; };
+		580D2DB7217B062C001D5200 /* HEMulticastDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HEMulticastDelegate.m; sourceTree = "<group>"; };
+		580D2DBB217B3CC8001D5200 /* MulticastDelegateTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MulticastDelegateTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +294,7 @@
 			children = (
 				0EB7A3FD217604C50075C750 /* IMTests.m */,
 				0EB7A3FF217604C50075C750 /* Info.plist */,
+				580D2DBB217B3CC8001D5200 /* MulticastDelegateTest.m */,
 			);
 			path = IMTests;
 			sourceTree = "<group>";
@@ -311,7 +317,7 @@
 			children = (
 				0EB7A5492176148F0075C750 /* Network */,
 				0EB7A53821760BF20075C750 /* Model */,
-				0EB7A470217608BD0075C750 /* Tools */,
+				0EB7A470217608BD0075C750 /* Utils */,
 				0EB7A473217608BD0075C750 /* Category */,
 				0EB7A474217608BD0075C750 /* Protocols */,
 				0E3FCED921772B610025DD61 /* Imp */,
@@ -322,15 +328,17 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		0EB7A470217608BD0075C750 /* Tools */ = {
+		0EB7A470217608BD0075C750 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				0EB7A471217608BD0075C750 /* MD5Tool.m */,
 				0EB7A472217608BD0075C750 /* MD5Tool.h */,
 				0EB61BAF2179904400ED53BF /* InternetReachabilityTool.h */,
 				0EB61BB02179904400ED53BF /* InternetReachabilityTool.m */,
+				580D2DB6217B062C001D5200 /* HEMulticastDelegate.h */,
+				580D2DB7217B062C001D5200 /* HEMulticastDelegate.m */,
 			);
-			path = Tools;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		0EB7A473217608BD0075C750 /* Category */ = {
@@ -687,6 +695,7 @@
 				0EB7A4C3217608BD0075C750 /* UIImage+GIF.m in Sources */,
 				0EB7A4B9217608BD0075C750 /* FMDatabaseAdditions.m in Sources */,
 				0E3FCEBE217709D80025DD61 /* HESession.m in Sources */,
+				580D2DB8217B062C001D5200 /* HEMulticastDelegate.m in Sources */,
 				0EB61BB42179B5D400ED53BF /* HETCPSocketService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -696,6 +705,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EB7A3FE217604C50075C750 /* IMTests.m in Sources */,
+				580D2DBC217B3CC8001D5200 /* MulticastDelegateTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
