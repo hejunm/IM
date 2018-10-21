@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,62 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQQ-QF-i1k">
+                                <rect key="frame" x="30" y="31" width="31" height="30"/>
+                                <state key="normal" title="连接"/>
+                                <connections>
+                                    <action selector="connect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Udq-uf-24c"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKt-R5-6Cp">
+                                <rect key="frame" x="96" y="31" width="31" height="30"/>
+                                <state key="normal" title="断开"/>
+                                <connections>
+                                    <action selector="desConnect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aBU-jB-VaF"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dq0-ut-kvV">
+                                <rect key="frame" x="30" y="76" width="253" height="30"/>
+                                <nil key="textColor"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJJ-mk-nvN">
+                                <rect key="frame" x="299" y="76" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="5k9-Vq-g8c"/>
+                                </constraints>
+                                <state key="normal" title="发送"/>
+                                <connections>
+                                    <action selector="sender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dWM-cf-RZo"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Dq0-ut-kvV" firstAttribute="top" secondItem="hQQ-QF-i1k" secondAttribute="bottom" constant="15" id="Aaf-Ts-gCO"/>
+                            <constraint firstItem="LJJ-mk-nvN" firstAttribute="centerY" secondItem="Dq0-ut-kvV" secondAttribute="centerY" id="BZS-O8-oLN"/>
+                            <constraint firstItem="aKt-R5-6Cp" firstAttribute="leading" secondItem="hQQ-QF-i1k" secondAttribute="trailing" constant="35" id="Pgs-PU-tg8"/>
+                            <constraint firstItem="aKt-R5-6Cp" firstAttribute="centerY" secondItem="hQQ-QF-i1k" secondAttribute="centerY" id="QpY-5G-RGW"/>
+                            <constraint firstItem="LJJ-mk-nvN" firstAttribute="leading" secondItem="Dq0-ut-kvV" secondAttribute="trailing" constant="16" id="SdN-2V-dsC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LJJ-mk-nvN" secondAttribute="trailing" constant="30" id="YOk-JR-azY"/>
+                            <constraint firstItem="Dq0-ut-kvV" firstAttribute="leading" secondItem="hQQ-QF-i1k" secondAttribute="leading" id="cH3-S0-aMy"/>
+                            <constraint firstItem="hQQ-QF-i1k" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="cl6-2e-Wl2"/>
+                            <constraint firstItem="hQQ-QF-i1k" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="11" id="jH8-GL-mzL"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="contentTextField" destination="Dq0-ut-kvV" id="9kU-3s-fFs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="0.80000000000000004" y="81.409295352323838"/>
         </scene>
     </scenes>
 </document>

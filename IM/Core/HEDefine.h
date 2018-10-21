@@ -16,5 +16,4 @@
 #else
 # define DebugLog(...) {}
 #endif
-
 #endif

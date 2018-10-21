@@ -10,11 +10,21 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger,HESocketConnectStatus) {
-    HESocketConnectStatus_UnConnected       = 0,//未连接状态
-    HESocketConnectStatus_Connected         = 1,//连接状态
-    //HESocketConnectStatus_DisconnectByUser  = 2,//主动断开连接
-    HESocketConnectStatus_Unknow            = 3 //未知
+static NSString *const HETCPHandlerErrorDomain = @"XMPPStreamErrorDomain";
+
+typedef NS_ENUM(NSInteger,HETCPHandlerState) {
+    HETCPHandlerState_UnConnected = 0,  //未连接状态
+    HETCPHandlerState_Connecting,       //正在连接    
+    HETCPHandlerState_Connected,        //连接状态
+    //HETCPHandlerState_DisconnectByUser  //主动断开连接
+};
+
+typedef NS_ENUM(NSUInteger, HETCPHandlerErrorCode) {
+    HETCPHandlerInvalidType,       // Attempting to access P2P methods in a non-P2P stream, or vice-versa
+    HETCPHandlerInvalidState,      // Invalid state for requested action, such as connect when already connected
+    HETCPHandlerInvalidProperty,   // Missing a required property, such as myJID
+    HETCPHandlerInvalidParameter,  // Invalid parameter, such as a nil JID
+    HETCPHandlerUnsupportedAction, // The server doesn't support the requested action
 };
 
 @protocol HETCPHandlerDelegate <NSObject>
@@ -24,12 +34,14 @@ typedef NS_ENUM(NSInteger,HESocketConnectStatus) {
 
 @interface HETCPHandler : NSObject
 
-@property (nonatomic, assign) HESocketConnectStatus connectStatus; //socket连接状态
+@property (nonatomic, assign) HETCPHandlerState state; //socket连接状态
 @property (nonatomic,weak)id<HETCPHandlerDelegate> delegate;
 
 +(instancetype)shareInstance;
 
 - (void)setHost:(NSString *)host port:(uint16_t)port;
+
+- (BOOL)connectWithTimeout:(NSTimeInterval)timeout error:(NSError **)errPtr;
 
 - (void)disconnect;
 

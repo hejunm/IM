@@ -65,6 +65,7 @@
     [mulDelegate addDelegate:imp2 delegateQueue:dispatch_get_main_queue()];
     
     [mulDelegate removeDelegate:imp2];
+
     [mulDelegate method1];
     [mulDelegate method2:@"hello"];
     [mulDelegate method3];
