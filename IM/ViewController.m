@@ -7,10 +7,10 @@
 //
 
 #import "ViewController.h"
-#import "HETCPHandler.h"
+#import "HESocketHandler.h"
 
 @interface ViewController ()
-@property(nonatomic,weak)HETCPHandler *socketHandler;
+@property(nonatomic,weak)HESocketHandler *socketHandler;
 @property (weak, nonatomic) IBOutlet UITextField *contentTextField;
 
 @end
@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.socketHandler = [HETCPHandler shareInstance];
+    self.socketHandler = [HESocketHandler shareInstance];
     [self.socketHandler setHost:@"192.168.0.100" port:6969];
     // Do any additional setup after loading the view, typically from a nib.
 }

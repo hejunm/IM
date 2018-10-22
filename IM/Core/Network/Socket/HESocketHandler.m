@@ -1,16 +1,17 @@
 //
-//  HETCPHandler.m
+//  HESocketHandler.m
 //  IM
 //
 //  Created by jmhe on 2018/10/17.
 //  Copyright © 2018 贺俊孟. All rights reserved.
 //
 
-#import "HETCPHandler.h"
+#import "HESocketHandler.h"
 #import "GCDAsyncSocket.h"
 #import "HETCPSocketService.h"
+#import "HEMulticastDelegate.h"
 
-@interface HETCPHandler()<GCDAsyncSocketDelegate>
+@interface HESocketHandler()<GCDAsyncSocketDelegate>
 {
     void *socketQueueTag;
 }
@@ -30,15 +31,19 @@
 //服务器列表
 @property (nonatomic,strong)NSArray<HETCPSocketService *> *serviceArray;
 
+@property (nonatomic,strong)NSMutableArray *registeredModules;
+
+/**多播代理*/
+@property (nonatomic,strong)HEMulticastDelegate *multicastDelegate;
 @end
 
-@implementation HETCPHandler
+@implementation HESocketHandler
 
 +(instancetype) shareInstance{
-    static HETCPHandler *Handler = nil;
+    static HESocketHandler *Handler = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        Handler = [[HETCPHandler alloc]init];
+        Handler = [[HESocketHandler alloc]init];
     });
     return Handler;
 }
@@ -50,7 +55,7 @@
         socketQueueTag = &socketQueueTag;
         dispatch_queue_set_specific(_socketQueue, socketQueueTag, socketQueueTag, NULL);
         _socket = [self newSocket];
-        _state = HETCPHandlerState_UnConnected;      //默认状态未连接
+        _state = HESocketHandlerState_UnConnected;      //默认状态未连接
     }
     return self;
 }
@@ -66,22 +71,22 @@
     __block BOOL result = NO;
     __block NSError *err = nil;
     dispatch_block_t block = ^{ @autoreleasepool {
-        if (self.state != HETCPHandlerState_UnConnected) {
+        if (self.state != HESocketHandlerState_UnConnected) {
             NSString *errMsg = @"Attempting to connect while already connected or connecting.";
             NSDictionary *info = @{NSLocalizedDescriptionKey : errMsg};
-            err = [NSError errorWithDomain:HETCPHandlerErrorDomain code:HETCPHandlerInvalidState userInfo:info];
+            err = [NSError errorWithDomain:HESocketHandlerErrorDomain code:HESocketHandlerInvalidState userInfo:info];
             result = NO;
             return;
         }
         
         // Open TCP connection to the configured hostName.
-        self.state = HETCPHandlerState_Connecting;
+        self.state = HESocketHandlerState_Connecting;
         NSError *connectErr = nil;
          [self.socket setDelegate:self delegateQueue:self.socketQueue];
         result = [self.socket connectToHost:self.host onPort:self.port withTimeout:timeout error:&connectErr];
         if (!result){
             err = connectErr;
-            self.state = HETCPHandlerState_UnConnected;
+            self.state = HESocketHandlerState_UnConnected;
         }
     }};
     
@@ -119,16 +124,67 @@
     }
     [self.socket setDelegate:nil delegateQueue:nil];
     [self.socket disconnect];
-    self.state = HETCPHandlerState_UnConnected;
+    self.state = HESocketHandlerState_UnConnected;
 }
 
 - (void)tryToReconnect{
-    BOOL isNetworkReachable = [InternetReachabilityTool shareInstance].isReachable;
-    if (!isNetworkReachable) {
-        if (self.delegate && [self.delegate respondsToSelector:@selector(socketCanNotConnectToService)]) {
-            [self.delegate socketCanNotConnectToService];
+    
+}
+
+#pragma mark - Module  拓展HESocketHandler功能
+- (void)registerModule:(HESocketModule *)module{
+    dispatch_block_t block = ^{ @autoreleasepool {
+        [self.registeredModules addObject:module];
+        module.socketHandler = self;
+        [self.multicastDelegate addDelegate:module delegateQueue:module.modultQueue];
+    }};
+    if (dispatch_get_specific(socketQueueTag)){
+        block();
+    }else{
+        dispatch_sync(self.socketQueue, block);
+    }
+}
+
+- (void)unregisterModule:(HESocketModule *)module{
+    dispatch_block_t block = ^{ @autoreleasepool {
+        module.socketHandler = nil;
+        [self.registeredModules removeObject:module];
+        [self.multicastDelegate removeDelegate:module];
+    }};
+    if (dispatch_get_specific(socketQueueTag)){
+        block();
+    }else{
+        dispatch_sync(self.socketQueue, block);
+    }
+}
+
+- (void)addDelegate:(id)delegate delegateQueue:(dispatch_queue_t)delegateQueue toModulesOfClass:(Class)aClass{
+    dispatch_block_t block = ^{ @autoreleasepool {
+        for (HESocketModule *module in self.registeredModules) {
+            if ([module isKindOfClass:aClass]){
+                [module.multicastDelegate addDelegate:delegate delegateQueue:delegateQueue];
+            }
         }
-        return;
+    }};
+    if (dispatch_get_specific(socketQueueTag)){
+        block();
+    }else{
+        dispatch_sync(self.socketQueue, block);
+    }
+}
+
+- (void)removeDelegate:(id)delegate fromModulesOfClass:(Class)aClass{
+    dispatch_block_t block = ^{ @autoreleasepool {
+        for (HESocketModule *module in self.registeredModules) {
+            if (aClass == NULL || [module isKindOfClass:aClass]) {
+                [module.multicastDelegate removeDelegate:delegate];
+            }
+        }
+    }};
+    if (dispatch_get_specific(socketQueueTag)){
+        block();
+    }else{
+        dispatch_sync(self.socketQueue, block);
     }
 }
 
@@ -148,7 +204,7 @@
 #pragma mark - GCDAsyncSocketDelegate
 
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port {
-    self.state = HETCPHandlerState_Connected;
+    self.state = HESocketHandlerState_Connected;
     NSLog(@"连接成功,host:%@,port:%d",host,port);
 }
 
@@ -171,4 +227,12 @@
 
 #pragma mark - 接受数据
 
+#pragma mark - getter
+- (NSMutableArray *)registeredModules{
+    if (_registeredModules) {
+        return _registeredModules;
+    }
+    _registeredModules = [[NSMutableArray alloc]init];
+    return _registeredModules;
+}
 @end
