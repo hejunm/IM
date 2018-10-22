@@ -12,6 +12,9 @@
 @class HESocketHandler;
 
 @interface HESocketModule : NSObject
+{
+    void *moduleQueueTag;
+}
 @property(nonatomic,weak)HESocketHandler *socketHandler;
 @property (nonatomic, strong) dispatch_queue_t modultQueue;
 @property (nonatomic,strong)HEMulticastDelegate *multicastDelegate;

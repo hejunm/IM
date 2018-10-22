@@ -41,6 +41,8 @@ typedef NS_ENUM(NSUInteger, HESocketHandlerErrorCode) {
 
 - (void)setHost:(NSString *)host port:(uint16_t)port;
 
+- (void)tryToReconnect;
+
 - (BOOL)connectWithTimeout:(NSTimeInterval)timeout error:(NSError **)errPtr;
 
 - (void)disconnect;

@@ -10,6 +10,8 @@
 #import "GCDAsyncSocket.h"
 #import "HETCPSocketService.h"
 #import "HEMulticastDelegate.h"
+#import "HESocketModule.h"
+#define DEFAULT_HESOCKET_CONNECT_TIMEOUT 3.0
 
 @interface HESocketHandler()<GCDAsyncSocketDelegate>
 {
@@ -67,7 +69,6 @@
 }
 
 #pragma mark - 连接
-
 - (BOOL)connectWithTimeout:(NSTimeInterval)timeout error:(NSError **)errPtr{
     __block BOOL result = NO;
     __block NSError *err = nil;
@@ -105,6 +106,10 @@
     return result;
 }
 
+- (void)tryToReconnect{
+    [self connectWithTimeout:DEFAULT_HESOCKET_CONNECT_TIMEOUT error:nil];
+}
+
 - (void)setHost:(NSString *)host port:(uint16_t)port{
     dispatch_block_t block = ^{ @autoreleasepool {
         self.host = host;
@@ -123,16 +128,9 @@
 }
 
 - (void)disconnect{
-    if (!self.socket.isConnected) {
-        return;
-    }
     [self.socket setDelegate:nil delegateQueue:nil];
     [self.socket disconnect];
     self.state = HESocketHandlerState_UnConnected;
-}
-
-- (void)tryToReconnect{
-    
 }
 
 #pragma mark - Module  拓展HESocketHandler功能

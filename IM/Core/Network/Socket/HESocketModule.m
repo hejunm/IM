@@ -11,9 +11,6 @@
 #import "HEMulticastDelegate.h"
 
 @interface HESocketModule() <HESocketHandlerDelegate>
-{
-    void *moduleQueueTag;
-}
 @end
 
 @implementation HESocketModule
@@ -28,5 +25,13 @@
         self.multicastDelegate = [[HEMulticastDelegate alloc]init];
     }
     return self;
+}
+
+- (void)doBlock:(dispatch_block_t)block{
+    if (dispatch_get_specific(moduleQueueTag)){
+        block();
+    }else{
+        dispatch_sync(self.modultQueue, block);
+    }
 }
 @end

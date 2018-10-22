@@ -45,6 +45,9 @@
     [self setupReconnectTimer];
 }
 
+- (void)socketDidConnectToHost:(NSString *)host port:(uint16_t)port{
+    [self reset];
+}
 
 #pragma mark - private method
 - (void)setupReconnectTimer{
@@ -56,18 +59,31 @@
     }});
     dispatch_time_t startTime = dispatch_time(DISPATCH_TIME_NOW, (self.reconnectDelay * NSEC_PER_SEC * self.retryCount));
     //设置给timer
-    dispatch_source_set_timer(self.reconnectTimer, startTime, DISPATCH_TIME_FOREVER, 0);
+    dispatch_source_set_timer(self.reconnectTimer, startTime, DISPATCH_TIME_FOREVER, 0.25);
     //开启定时器
     dispatch_resume(self.reconnectTimer);
-    
 }
 
 - (void)teardownReconnectTimer{
+    NSAssert(dispatch_get_specific(moduleQueueTag) , @"Invoked on incorrect queue");
+    if (self.reconnectTimer){
+        dispatch_source_cancel(self.reconnectTimer);
+        self.reconnectTimer = NULL;
+    }
+}
+
+- (void)reset{
     
+    
+    self.retryCount = 0;
+    [self teardownReconnectTimer];
 }
 
 - (void)maybeAttemptReconnect{
-    self.socketHandler connectWithTimeout:<#(NSTimeInterval)#> error:<#(NSError *__autoreleasing *)#>
+    if (self.socketHandler.isConnected) {
+        return;
+    }
+    [self.socketHandler tryToReconnect];
 }
 
 @end
