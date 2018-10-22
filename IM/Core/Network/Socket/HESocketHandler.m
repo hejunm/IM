@@ -34,7 +34,7 @@
 @property (nonatomic,strong)NSMutableArray *registeredModules;
 
 /**多播代理*/
-@property (nonatomic,strong)HEMulticastDelegate *multicastDelegate;
+@property (nonatomic,strong)HEMulticastDelegate<HESocketHandlerDelegate> *multicastDelegate;
 @end
 
 @implementation HESocketHandler
@@ -67,6 +67,7 @@
 }
 
 #pragma mark - 连接
+
 - (BOOL)connectWithTimeout:(NSTimeInterval)timeout error:(NSError **)errPtr{
     __block BOOL result = NO;
     __block NSError *err = nil;
@@ -83,6 +84,9 @@
         self.state = HESocketHandlerState_Connecting;
         NSError *connectErr = nil;
          [self.socket setDelegate:self delegateQueue:self.socketQueue];
+        /**
+         这里可以配置多个主机地址，遍历链接 直到result=true或者遍历结束
+         */
         result = [self.socket connectToHost:self.host onPort:self.port withTimeout:timeout error:&connectErr];
         if (!result){
             err = connectErr;
@@ -202,30 +206,62 @@
 }
 
 #pragma mark - GCDAsyncSocketDelegate
-
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port {
+    DebugLog(@"连接成功,host:%@,port:%d",host,port);
     self.state = HESocketHandlerState_Connected;
-    NSLog(@"连接成功,host:%@,port:%d",host,port);
+    [self.multicastDelegate socketDidConnectToHost:host port:port];
 }
 
-
-
-- (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)error {
-    DebugLog(@"TCPSocket连接已断开...%@", error);
-    NSLog(@"断开连接,host:%@,port:%d",sock.localHost,sock.localPort);
-//    [self tryToReconnect];
-}
-
-- (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag {
-    NSLog(@"didWriteDataWithTag  tag:%ld",tag);
+- (void)socket:(GCDAsyncSocket *)sock didConnectToUrl:(NSURL *)url{
+    
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
     NSString *msg = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"didReadData： %@",msg);
+    DebugLog(@"didReadData： %@",msg);
 }
 
-#pragma mark - 接受数据
+- (void)socket:(GCDAsyncSocket *)sock didReadPartialDataOfLength:(NSUInteger)partialLength tag:(long)tag{
+    
+}
+
+- (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag {
+    DebugLog(@"didWriteDataWithTag  tag:%ld",tag);
+}
+
+- (void)socket:(GCDAsyncSocket *)sock didWritePartialDataOfLength:(NSUInteger)partialLength tag:(long)tag{
+    
+}
+
+- (NSTimeInterval)socket:(GCDAsyncSocket *)sock shouldTimeoutReadWithTag:(long)tag
+                 elapsed:(NSTimeInterval)elapsed
+               bytesDone:(NSUInteger)length{
+    return 0;
+}
+
+- (NSTimeInterval)socket:(GCDAsyncSocket *)sock shouldTimeoutWriteWithTag:(long)tag
+                 elapsed:(NSTimeInterval)elapsed
+               bytesDone:(NSUInteger)length{
+    return 0;
+}
+
+- (void)socketDidCloseReadStream:(GCDAsyncSocket *)sock{
+    
+}
+
+- (void)socketDidSecure:(GCDAsyncSocket *)sock{
+    
+}
+
+- (void)socket:(GCDAsyncSocket *)sock didReceiveTrust:(SecTrustRef)trust
+completionHandler:(void (^)(BOOL shouldTrustPeer))completionHandler{
+    
+}
+
+- (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)error {
+    DebugLog(@"TCPSocket连接已断开...host:%@,port:%d  %@",sock.localHost,sock.localPort,error);
+    [self.multicastDelegate socketDidDisconnectWithError:error];
+}
 
 #pragma mark - getter
 - (NSMutableArray *)registeredModules{

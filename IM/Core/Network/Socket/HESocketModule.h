@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HEMulticastDelegate.h"
 
+@class HEMulticastDelegate;
 @class HESocketHandler;
+
 @interface HESocketModule : NSObject
 @property(nonatomic,weak)HESocketHandler *socketHandler;
 @property (nonatomic, strong) dispatch_queue_t modultQueue;

@@ -9,7 +9,7 @@
 
 
 #import <Foundation/Foundation.h>
-#import "HESocketModule.h"
+@class HESocketModule;
 
 static NSString *const HESocketHandlerErrorDomain = @"XMPPStreamErrorDomain";
 
@@ -29,8 +29,8 @@ typedef NS_ENUM(NSUInteger, HESocketHandlerErrorCode) {
 };
 
 @protocol HESocketHandlerDelegate <NSObject>
-- (void)socketDidConnectToHost;
-- (void)socketCanNotConnectToService;
+- (void)socketDidConnectToHost:(NSString *)host port:(uint16_t)port;
+- (void)socketDidDisconnectWithError:(NSError *)error;
 @end
 
 @interface HESocketHandler : NSObject

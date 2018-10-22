@@ -9,5 +9,8 @@
 #import "HESocketModule.h"
 
 @interface HESocketReconnect : HESocketModule
-
+@property (nonatomic, assign) BOOL autoReconnect;
+@property (nonatomic, assign) NSUInteger reconnectDelay;    //每次重试的递增时间
+@property (nonatomic, assign) NSUInteger maxRetryCount;     //最大重试次数
+@property (nonatomic, assign) NSUInteger retryCount         //当前重试次数
 @end
