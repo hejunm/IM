@@ -49,6 +49,19 @@
     [self reset];
 }
 
+
+- (void)reset{
+    dispatch_block_t block = ^{ @autoreleasepool {
+        self.retryCount = 0;
+        [self teardownReconnectTimer];
+    }};
+    if (dispatch_get_specific(moduleQueueTag)){
+        block();
+    }else{
+        dispatch_async(self.modultQueue, block);
+    }
+}
+
 #pragma mark - private method
 - (void)setupReconnectTimer{
     if (self.reconnectTimer == NULL) {
@@ -70,13 +83,6 @@
         dispatch_source_cancel(self.reconnectTimer);
         self.reconnectTimer = NULL;
     }
-}
-
-- (void)reset{
-    
-    
-    self.retryCount = 0;
-    [self teardownReconnectTimer];
 }
 
 - (void)maybeAttemptReconnect{
