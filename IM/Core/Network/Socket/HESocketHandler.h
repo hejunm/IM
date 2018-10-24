@@ -10,6 +10,7 @@
 
 #import <Foundation/Foundation.h>
 @class HESocketModule;
+@class HETCPRequestEntity;
 
 static NSString *const HESocketHandlerErrorDomain = @"XMPPStreamErrorDomain";
 

@@ -14,18 +14,18 @@
 /**
  类似http中的url，标示某个接口
  */
-@property(nonatomic,assign,readonly)NSUInteger apiCode;
+@property(nonatomic,assign)NSUInteger apiCode;
 
 /**
  标记某个请求对应的响应
  如果是服务器主动发的请求，则为0
  */
-@property(nonatomic,assign,readonly)NSUInteger respId;
+@property(nonatomic,assign)NSUInteger respId;
 
 /**
  消息长度
  */
-@property(nonatomic,assign,readonly)NSUInteger contentLength;
+@property(nonatomic,assign)NSUInteger contentLength;
 
 /**
  响应消息内容
