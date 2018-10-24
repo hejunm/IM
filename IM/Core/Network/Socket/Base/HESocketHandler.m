@@ -11,6 +11,11 @@
 #import "HETCPSocketService.h"
 #import "HEMulticastDelegate.h"
 #import "HESocketModule.h"
+#import "HETCPRequestEntity.h"
+#import "HETCPResponseEntity.h"
+#import "HETCPTask.h"
+
+
 #define DEFAULT_HESOCKET_CONNECT_TIMEOUT 3.0
 
 @interface HESocketHandler()<GCDAsyncSocketDelegate>
@@ -37,6 +42,8 @@
 
 /**多播代理*/
 @property (nonatomic,strong)HEMulticastDelegate<HESocketHandlerDelegate> *multicastDelegate;
+
+@property(nonatomic,strong)NSMutableDictionary *reqHashTable;
 @end
 
 @implementation HESocketHandler
@@ -58,6 +65,7 @@
         dispatch_queue_set_specific(_socketQueue, socketQueueTag, socketQueueTag, NULL);
         _socket = [self newSocket];
         _state = HESocketHandlerState_UnConnected;      //默认状态未连接
+        _reqHashTable = [[NSMutableDictionary alloc]init];
     }
     return self;
 }
@@ -201,6 +209,17 @@
 
 - (void)writeData:(NSData *)data withTimeout:(NSTimeInterval)timeout{
     [self.socket writeData:data withTimeout:timeout tag:110];
+}
+
+- (void)sendRequest:(HETCPRequestEntity *)request
+            success:(void (^)(HETCPResponseEntity *resp))successBlock
+            failure:(void (^)(NSError *error))failuerBlock{
+    HETCPTask *task = [[HETCPTask alloc]init];
+    task.successBlock = successBlock;
+    task.failureBlock = failuerBlock;
+    [self.reqHashTable setObject:task forKey:@(request.reqId)];
+    
+    [self.socket writeData:[request packData]  withTimeout:-1 tag:request.reqId];
 }
 
 #pragma mark - GCDAsyncSocketDelegate

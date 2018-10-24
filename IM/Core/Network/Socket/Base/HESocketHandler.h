@@ -11,6 +11,8 @@
 #import <Foundation/Foundation.h>
 @class HESocketModule;
 @class HETCPRequestEntity;
+@class HESocketRequestEntity;
+@class HETCPResponseEntity;
 
 static NSString *const HESocketHandlerErrorDomain = @"XMPPStreamErrorDomain";
 
@@ -51,6 +53,10 @@ typedef NS_ENUM(NSUInteger, HESocketHandlerErrorCode) {
 - (BOOL)isConnected;
 
 - (void)writeData:(NSData *)data;
+
+- (void)sendRequest:(HETCPRequestEntity *)request
+            success:(void (^)(HETCPResponseEntity *resp))successBlock
+            failure:(void (^)(NSError *error))failuerBlock;
 
 #pragma mark Module
 - (void)registerModule:(HESocketModule *)module;

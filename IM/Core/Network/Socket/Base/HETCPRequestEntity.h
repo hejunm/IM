@@ -1,5 +1,5 @@
 //
-//  HESocketRequestEntity.h
+//  HETCPRequestEntity.h
 //  IM
 //
 //  Created by jmhe on 2018/10/18.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface HESocketRequestEntity : NSObject
+@interface HETCPRequestEntity : NSObject
 
 /**类似http中的url，标示某个接口*/
 @property(nonatomic,assign)NSUInteger apiCode;
@@ -19,12 +19,6 @@
 
 /**发送消息内容 */
 @property(nonatomic,strong)NSData *contentData;
-
-/**接受到服务器数据后的回调*/
-@property (nonatomic, copy) void (^successBlock)(NSData *respData);
-
-/**失败后回调*/
-@property (nonatomic, copy) void (^failureBlock)(NSError *error);
 
 /**
  数据装包，TCP发送的数据
