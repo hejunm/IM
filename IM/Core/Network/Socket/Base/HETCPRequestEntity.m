@@ -7,9 +7,28 @@
 //
 
 #import "HETCPRequestEntity.h"
+#import "HEDataFormatter.h"
 
 @implementation HETCPRequestEntity
+
 - (NSData *)packData{
-    return [[NSData alloc]init];
+    NSMutableData *formattedData = [[NSMutableData alloc]init];
+    
+    //apiCode
+    [formattedData appendData:[HEDataFormatter dataFromInteger4:self.apiCode]];
+    
+    //reqId
+    [formattedData appendData:[HEDataFormatter dataFromInteger4:self.reqId]];
+    
+    //ackId
+    [formattedData appendData:[HEDataFormatter dataFromInteger4:self.ackId]];
+    
+    //contentLength
+    [formattedData appendData:[HEDataFormatter dataFromInteger4:(uint32_t)self.contentData.length]];
+    
+    //content
+    [formattedData appendData:self.contentData];
+    
+    return formattedData;
 }
 @end

@@ -44,6 +44,8 @@
 @property (nonatomic,strong)HEMulticastDelegate<HESocketHandlerDelegate> *multicastDelegate;
 
 @property(nonatomic,strong)NSMutableDictionary *reqHashTable;
+
+@property(nonatomic,strong)NSMutableData *buffer;
 @end
 
 @implementation HESocketHandler
@@ -66,6 +68,7 @@
         _socket = [self newSocket];
         _state = HESocketHandlerState_UnConnected;      //默认状态未连接
         _reqHashTable = [[NSMutableDictionary alloc]init];
+        _buffer = [NSMutableData new];
     }
     return self;
 }
@@ -101,6 +104,12 @@
             err = connectErr;
             self.state = HESocketHandlerState_UnConnected;
         }
+        
+        //重置缓冲区
+        self.buffer = [NSMutableData new];
+        
+        //取消所有任务全部
+        
     }};
     
     if (dispatch_get_specific(socketQueueTag)){
@@ -129,7 +138,6 @@
         dispatch_sync(self.socketQueue, block);
     }
 }
-
 
 - (BOOL)isConnected{
     return self.socket.isConnected;
@@ -218,7 +226,6 @@
     task.successBlock = successBlock;
     task.failureBlock = failuerBlock;
     [self.reqHashTable setObject:task forKey:@(request.reqId)];
-    
     [self.socket writeData:[request packData]  withTimeout:-1 tag:request.reqId];
 }
 
@@ -234,8 +241,7 @@
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
-    NSString *msg = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-    DebugLog(@"didReadData： %@",msg);
+    [self.buffer appendData:data];
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didReadPartialDataOfLength:(NSUInteger)partialLength tag:(long)tag{

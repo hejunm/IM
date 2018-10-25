@@ -22,6 +22,7 @@
 		0E59FC43217DBCD50017B99C /* HESocketReconnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E59FC42217DBCD50017B99C /* HESocketReconnect.m */; };
 		0E59FC46217DBE350017B99C /* HESocketAutoPing.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E59FC45217DBE350017B99C /* HESocketAutoPing.m */; };
 		0E59FC49217DBE4E0017B99C /* HESocketSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E59FC48217DBE4E0017B99C /* HESocketSender.m */; };
+		0E7930AB218168A4003C2CAE /* HEDataFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E7930AA218168A4003C2CAE /* HEDataFormatter.m */; };
 		0EB5590721800D88007036E9 /* HEReqBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB5590621800D88007036E9 /* HEReqBase.m */; };
 		0EB5590A21800DCB007036E9 /* HERespBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB5590921800DCB007036E9 /* HERespBase.m */; };
 		0EB5590D21800F0C007036E9 /* HEReqHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB5590C21800F0C007036E9 /* HEReqHeader.m */; };
@@ -119,6 +120,8 @@
 		0E59FC45217DBE350017B99C /* HESocketAutoPing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HESocketAutoPing.m; sourceTree = "<group>"; };
 		0E59FC47217DBE4E0017B99C /* HESocketSender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HESocketSender.h; sourceTree = "<group>"; };
 		0E59FC48217DBE4E0017B99C /* HESocketSender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HESocketSender.m; sourceTree = "<group>"; };
+		0E7930A9218168A4003C2CAE /* HEDataFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEDataFormatter.h; sourceTree = "<group>"; };
+		0E7930AA218168A4003C2CAE /* HEDataFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HEDataFormatter.m; sourceTree = "<group>"; };
 		0E9D7FEB217754CF00B79A56 /* HEDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEDefine.h; sourceTree = "<group>"; };
 		0EB5590521800D88007036E9 /* HEReqBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEReqBase.h; sourceTree = "<group>"; };
 		0EB5590621800D88007036E9 /* HEReqBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HEReqBase.m; sourceTree = "<group>"; };
@@ -386,6 +389,8 @@
 				580D2DB7217B062C001D5200 /* HEMulticastDelegate.m */,
 				0EDE4F32218043C8009397A3 /* HETaskIdGenerator.h */,
 				0EDE4F33218043C8009397A3 /* HETaskIdGenerator.m */,
+				0E7930A9218168A4003C2CAE /* HEDataFormatter.h */,
+				0E7930AA218168A4003C2CAE /* HEDataFormatter.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -613,12 +618,12 @@
 			children = (
 				0E3FCEB32176D6540025DD61 /* HESocketHandler.h */,
 				0E3FCEB42176D6540025DD61 /* HESocketHandler.m */,
+				582BE0902180C9420030D079 /* HETCPTask.h */,
+				582BE0912180C9420030D079 /* HETCPTask.m */,
 				0EDE6D322178B02800D38B8E /* HETCPRequestEntity.h */,
 				0EDE6D332178B02800D38B8E /* HETCPRequestEntity.m */,
 				0EDE6D352178B05300D38B8E /* HETCPResponseEntity.h */,
 				0EDE6D362178B05300D38B8E /* HETCPResponseEntity.m */,
-				582BE0902180C9420030D079 /* HETCPTask.h */,
-				582BE0912180C9420030D079 /* HETCPTask.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -743,6 +748,7 @@
 				0EB7A4CB217608BD0075C750 /* NSImage+WebCache.m in Sources */,
 				0EB7A3E9217604C40075C750 /* ViewController.m in Sources */,
 				0EB7A4BA217608BD0075C750 /* FMDatabase.m in Sources */,
+				0E7930AB218168A4003C2CAE /* HEDataFormatter.m in Sources */,
 				0E3FCED821772A3D0025DD61 /* HERecentSession.m in Sources */,
 				0EB7A3F4217604C50075C750 /* main.m in Sources */,
 				0EB7A4CF217608BD0075C750 /* UIButton+WebCache.m in Sources */,
