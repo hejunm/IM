@@ -18,6 +18,12 @@
 		0E3FCEDF21772F1B0025DD61 /* HEMessageSearchOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCEDE21772F1B0025DD61 /* HEMessageSearchOption.m */; };
 		0E3FCEE52177363E0025DD61 /* HECacheQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCEE42177363E0025DD61 /* HECacheQuery.m */; };
 		0E3FCEE821773A0D0025DD61 /* HEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCEE721773A0D0025DD61 /* HEUser.m */; };
+		0E555691218AB6BB0037A186 /* HESocketChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E555690218AB6BB0037A186 /* HESocketChannel.m */; };
+		0E55569B218AE1840037A186 /* HESocketConnectParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E55569A218AE1840037A186 /* HESocketConnectParam.m */; };
+		0E55569E218AE68F0037A186 /* HESocketConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E55569D218AE68F0037A186 /* HESocketConnection.m */; };
+		0E5556A1218AF8070037A186 /* HESocketConnectPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E5556A0218AF8070037A186 /* HESocketConnectPolicy.m */; };
+		0E5556A4218AFC0F0037A186 /* HESocketHeartbeatPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E5556A3218AFC0F0037A186 /* HESocketHeartbeatPolicy.m */; };
+		0E5556A7218B1DC80037A186 /* NSTimer+BlockSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E5556A6218B1DC80037A186 /* NSTimer+BlockSupport.m */; };
 		0E59FC40217DADBE0017B99C /* HESocketModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E59FC3F217DADBE0017B99C /* HESocketModule.m */; };
 		0E59FC43217DBCD50017B99C /* HESocketReconnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E59FC42217DBCD50017B99C /* HESocketReconnect.m */; };
 		0E59FC46217DBE350017B99C /* HESocketAutoPing.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E59FC45217DBE350017B99C /* HESocketAutoPing.m */; };
@@ -112,6 +118,19 @@
 		0E3FCEE42177363E0025DD61 /* HECacheQuery.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HECacheQuery.m; sourceTree = "<group>"; };
 		0E3FCEE621773A0D0025DD61 /* HEUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEUser.h; sourceTree = "<group>"; };
 		0E3FCEE721773A0D0025DD61 /* HEUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HEUser.m; sourceTree = "<group>"; };
+		0E55568F218AB6BB0037A186 /* HESocketChannel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HESocketChannel.h; sourceTree = "<group>"; };
+		0E555690218AB6BB0037A186 /* HESocketChannel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HESocketChannel.m; sourceTree = "<group>"; };
+		0E555696218AE12F0037A186 /* HESocketConnectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HESocketConnectionDelegate.h; sourceTree = "<group>"; };
+		0E555699218AE1840037A186 /* HESocketConnectParam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HESocketConnectParam.h; sourceTree = "<group>"; };
+		0E55569A218AE1840037A186 /* HESocketConnectParam.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HESocketConnectParam.m; sourceTree = "<group>"; };
+		0E55569C218AE68F0037A186 /* HESocketConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HESocketConnection.h; sourceTree = "<group>"; };
+		0E55569D218AE68F0037A186 /* HESocketConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HESocketConnection.m; sourceTree = "<group>"; };
+		0E55569F218AF8070037A186 /* HESocketConnectPolicy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HESocketConnectPolicy.h; sourceTree = "<group>"; };
+		0E5556A0218AF8070037A186 /* HESocketConnectPolicy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HESocketConnectPolicy.m; sourceTree = "<group>"; };
+		0E5556A2218AFC0F0037A186 /* HESocketHeartbeatPolicy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HESocketHeartbeatPolicy.h; sourceTree = "<group>"; };
+		0E5556A3218AFC0F0037A186 /* HESocketHeartbeatPolicy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HESocketHeartbeatPolicy.m; sourceTree = "<group>"; };
+		0E5556A5218B1DC80037A186 /* NSTimer+BlockSupport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTimer+BlockSupport.h"; sourceTree = "<group>"; };
+		0E5556A6218B1DC80037A186 /* NSTimer+BlockSupport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+BlockSupport.m"; sourceTree = "<group>"; };
 		0E59FC3E217DADBE0017B99C /* HESocketModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HESocketModule.h; sourceTree = "<group>"; };
 		0E59FC3F217DADBE0017B99C /* HESocketModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HESocketModule.m; sourceTree = "<group>"; };
 		0E59FC41217DBCD50017B99C /* HESocketReconnect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HESocketReconnect.h; sourceTree = "<group>"; };
@@ -391,6 +410,8 @@
 				0EDE4F33218043C8009397A3 /* HETaskIdGenerator.m */,
 				0E7930A9218168A4003C2CAE /* HEDataFormatter.h */,
 				0E7930AA218168A4003C2CAE /* HEDataFormatter.m */,
+				0E5556A5218B1DC80037A186 /* NSTimer+BlockSupport.h */,
+				0E5556A6218B1DC80037A186 /* NSTimer+BlockSupport.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -624,6 +645,17 @@
 				0EDE6D332178B02800D38B8E /* HETCPRequestEntity.m */,
 				0EDE6D352178B05300D38B8E /* HETCPResponseEntity.h */,
 				0EDE6D362178B05300D38B8E /* HETCPResponseEntity.m */,
+				0E55568F218AB6BB0037A186 /* HESocketChannel.h */,
+				0E555690218AB6BB0037A186 /* HESocketChannel.m */,
+				0E555696218AE12F0037A186 /* HESocketConnectionDelegate.h */,
+				0E55569C218AE68F0037A186 /* HESocketConnection.h */,
+				0E55569D218AE68F0037A186 /* HESocketConnection.m */,
+				0E555699218AE1840037A186 /* HESocketConnectParam.h */,
+				0E55569A218AE1840037A186 /* HESocketConnectParam.m */,
+				0E55569F218AF8070037A186 /* HESocketConnectPolicy.h */,
+				0E5556A0218AF8070037A186 /* HESocketConnectPolicy.m */,
+				0E5556A2218AFC0F0037A186 /* HESocketHeartbeatPolicy.h */,
+				0E5556A3218AFC0F0037A186 /* HESocketHeartbeatPolicy.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -736,11 +768,14 @@
 				0EB7A4B8217608BD0075C750 /* FMDatabaseQueue.m in Sources */,
 				0EB7A4D0217608BD0075C750 /* GCDAsyncUdpSocket.m in Sources */,
 				0EB7A4C7217608BD0075C750 /* SDImageCache.m in Sources */,
+				0E5556A4218AFC0F0037A186 /* HESocketHeartbeatPolicy.m in Sources */,
 				0E3FCEBB2177096D0025DD61 /* HEMessageReceipt.m in Sources */,
 				0EB7A4B5217608BD0075C750 /* MD5Tool.m in Sources */,
 				0EB7A4C8217608BD0075C750 /* SDWebImageDownloaderOperation.m in Sources */,
 				0EB7A4CD217608BD0075C750 /* UIView+WebCacheOperation.m in Sources */,
 				0EB7A54C2176170A0075C750 /* HELoginClient.m in Sources */,
+				0E555691218AB6BB0037A186 /* HESocketChannel.m in Sources */,
+				0E55569E218AE68F0037A186 /* HESocketConnection.m in Sources */,
 				0EB5591021800F1A007036E9 /* HERespHeader.m in Sources */,
 				0E59FC40217DADBE0017B99C /* HESocketModule.m in Sources */,
 				0EB5590A21800DCB007036E9 /* HERespBase.m in Sources */,
@@ -768,9 +803,11 @@
 				0EB7A4C4217608BD0075C750 /* UIImage+MultiFormat.m in Sources */,
 				0EB55913218014F9007036E9 /* HESocketTask.m in Sources */,
 				0EDE6D372178B05300D38B8E /* HETCPResponseEntity.m in Sources */,
+				0E55569B218AE1840037A186 /* HESocketConnectParam.m in Sources */,
 				0E3FCEE52177363E0025DD61 /* HECacheQuery.m in Sources */,
 				0EB7A4CC217608BD0075C750 /* SDImageCacheConfig.m in Sources */,
 				0EB7A4C2217608BD0075C750 /* SDWebImageDownloader.m in Sources */,
+				0E5556A7218B1DC80037A186 /* NSTimer+BlockSupport.m in Sources */,
 				0E3FCEB52176D6540025DD61 /* HESocketHandler.m in Sources */,
 				0EB7A4C5217608BD0075C750 /* SDWebImageCompat.m in Sources */,
 				0E3FCEA12176D0470025DD61 /* HEMessageFactory.m in Sources */,
@@ -789,6 +826,7 @@
 				0E3FCEDF21772F1B0025DD61 /* HEMessageSearchOption.m in Sources */,
 				0EB7A3E6217604C40075C750 /* AppDelegate.m in Sources */,
 				0EB7A4C3217608BD0075C750 /* UIImage+GIF.m in Sources */,
+				0E5556A1218AF8070037A186 /* HESocketConnectPolicy.m in Sources */,
 				0EB7A4B9217608BD0075C750 /* FMDatabaseAdditions.m in Sources */,
 				0E3FCEBE217709D80025DD61 /* HESession.m in Sources */,
 				580D2DB8217B062C001D5200 /* HEMulticastDelegate.m in Sources */,
