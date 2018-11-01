@@ -1,5 +1,5 @@
 //
-//  HETCPResponseEntity.h
+//  HESocketResponse.h
 //  IM
 //
 //  Created by jmhe on 2018/10/18.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface HETCPResponseEntity : NSObject
+@interface HESocketResponse : NSObject
 
 /**
  类似http中的url，标示某个接口
@@ -37,7 +37,7 @@
 
 @end
 
-@interface HETCPResponseParser : NSObject
+@interface HESocketResponseParser : NSObject
 + (uint32_t)responseHeaderLength;
 + (uint32_t)apiCodeFromData:(NSData *)data;
 + (uint32_t)reqIdFromData:(NSData *)data;

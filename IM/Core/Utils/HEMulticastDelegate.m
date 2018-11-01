@@ -36,20 +36,16 @@
     return self;
 }
 
+- (void)addDelegate:(id)delegate{
+    [self addDelegate:delegate delegateQueue:NULL];
+}
+
 - (void)addDelegate:(id)delegate delegateQueue:(dispatch_queue_t)delegateQueue{
-    if (delegate == nil || delegateQueue == NULL) {
+    if (delegate == nil) {
         return;
     }
     HEMulticastDelegateNode *node = [[HEMulticastDelegateNode alloc]initWithDelegate:delegate delegateQueue:delegateQueue];
     [self.delegateNodes addObject:node];
-}
-
-- (void)removeAllDelegates{
-    for (HEMulticastDelegateNode *node in self.delegateNodes) {
-        node.delegate = nil;
-        node.delegateQueue = NULL;
-    }
-    [self.delegateNodes removeAllObjects];
 }
 
 - (void)removeDelegate:(id)delegate{
@@ -69,6 +65,14 @@
         }
     }
     [self.delegateNodes removeObjectsAtIndexes:indexSet];
+}
+
+- (void)removeAllDelegates{
+    for (HEMulticastDelegateNode *node in self.delegateNodes) {
+        node.delegate = nil;
+        node.delegateQueue = NULL;
+    }
+    [self.delegateNodes removeAllObjects];
 }
 
 - (NSUInteger)count{
@@ -131,9 +135,14 @@
         if ([nodeDelegate respondsToSelector:selector]){
             NSInvocation *dupInvocation = [self duplicateInvocation:origInvocation];
             // All delegates MUST be invoked ASYNCHRONOUSLY.
-            dispatch_async(node.delegateQueue, ^{ @autoreleasepool {
+            if (node.delegateQueue == NULL) {
                 [dupInvocation invokeWithTarget:nodeDelegate];
-            }});
+            }else{
+                dispatch_async(node.delegateQueue, ^{ @autoreleasepool {
+                    [dupInvocation invokeWithTarget:nodeDelegate];
+                }});
+            }
+            
         }else if (nodeDelegate == nil){
             foundNilDelegate = YES;
         }

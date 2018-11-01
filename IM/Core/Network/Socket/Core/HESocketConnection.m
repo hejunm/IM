@@ -6,6 +6,7 @@
 //  Copyright © 2018 贺俊孟. All rights reserved.
 //
 
+
 #import "HESocketConnection.h"
 #import "HESocketConnectParam.h"
 #import "GCDAsyncSocket.h"
@@ -143,18 +144,18 @@
     HESocketConnectPolicy *connectPolicy = self.connectParam.connectPolicy;
     [self stopConnectTimer];
      __weak typeof(self) weakSelf = self;
-    if(connectPolicy.canReconnect){
-        connectPolicy.currentRetryCount++;
-        if (connectPolicy.maxRetryCount > connectPolicy.currentRetryCount) {
-            DebugLog(@"达到最大重连次数，重连失败。通知上层");
-        }else{
-            NSTimeInterval interval = connectPolicy.currentRetryCount * connectPolicy.connectDelay;
-            weakSelf.reconnectTimer = [NSTimer heScheduledTimerWithTimeInterval:interval repeats:NO handlerBlock:^{
-                [weakSelf openConnection];
-            }];
-            
-            DebugLog(@"开启重连定时器，重连次数:%lu of %lu, 延时:%f",(unsigned long)connectPolicy.currentRetryCount,connectPolicy.maxRetryCount,interval);
-        }
+    if(connectPolicy.canReconnect && connectPolicy.maxRetryCount > connectPolicy.currentRetryCount){
+        connectPolicy.currentRetryCount ++;
+        NSTimeInterval interval = connectPolicy.currentRetryCount * connectPolicy.connectDelay;
+        weakSelf.reconnectTimer = [NSTimer heScheduledTimerWithTimeInterval:interval repeats:NO handlerBlock:^{
+            [weakSelf openConnection];
+        }];
+        DebugLog(@"开启重连定时器，重连次数:%lu of %lu, 延时:%f",(unsigned long)connectPolicy.currentRetryCount,connectPolicy.maxRetryCount,interval);
+    else{
+        NSDictionary *userInfo = @{@"msg":@"到达最大重连次数，连接失败"};
+        NSError *error = [NSError errorWithDomain:@"RHSocketService" code:1 userInfo:userInfo];
+        [self.delegate connection:self closedWithError:error];
+        DebugLog(@"达到最大重连次数，重连失败。通知上层");
     }
 }
 
@@ -196,6 +197,5 @@
         }
     });
 }
-
 
 @end

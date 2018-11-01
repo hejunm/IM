@@ -5,24 +5,32 @@
 //  Created by jmhe on 2018/11/1.
 //  Copyright © 2018 贺俊孟. All rights reserved.
 //
+/**
+ 职责：
+ 1，创建socket
+ 2，发送data
+ // 3，接受data，并解析成HESocketResponse, 这个在子类做
+ 4, 根据重连策略进行重连
+ 5，根据心跳策略进行心跳保活
+ */
 
 #import <Foundation/Foundation.h>
+#import "HEMulticastDelegate.h"
+
 @class HESocketConnectParam;
+@class HESocketConnection;
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol HESocketConnectionDelegate <NSObject>
+- (void)connectionOpened:(HESocketConnection *)con;
+- (void)connection:(HESocketConnection *)con  closedWithError:(NSError *)error;
+@end
 
-
-
-/**
- 职责：
-    1，创建socket
-    2，发送data
-    // 3，接受data，并解析成HESocketResponse, 这个在子类做
-    4, 根据重连策略进行重连
-    5，根据心跳策略进行心跳保活
- */
 @interface HESocketConnection : NSObject
+
+/** 代理，多播*/
+@property(nonatomic,strong)HEMulticastDelegate<HESocketConnectionDelegate> *delegate;
 
 /**
  根据初始化参数建立tcp链接

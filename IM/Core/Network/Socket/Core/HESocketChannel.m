@@ -9,5 +9,7 @@
 #import "HESocketChannel.h"
 
 @implementation HESocketChannel
+@dynamic delegate;
 
+//
 @end

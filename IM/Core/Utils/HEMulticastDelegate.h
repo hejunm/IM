@@ -10,9 +10,10 @@
 
 @interface HEMulticastDelegate : NSObject
 
+- (void)addDelegate:(id)delegate;
 - (void)addDelegate:(id)delegate delegateQueue:(dispatch_queue_t)delegateQueue;
-- (void)removeDelegate:(id)delegate delegateQueue:(nullable dispatch_queue_t)delegateQueue;
 - (void)removeDelegate:(id)delegate;
+- (void)removeDelegate:(id)delegate delegateQueue:(nullable dispatch_queue_t)delegateQueue;
 - (void)removeAllDelegates;
 - (NSUInteger)count;
 - (NSUInteger)countOfClass:(Class)aClass;
