@@ -11,11 +11,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- 重连
- 心跳
- */
 
+
+
+/**
+ 职责：
+    1，创建socket
+    2，发送data
+    // 3，接受data，并解析成HESocketResponse, 这个在子类做
+    4, 根据重连策略进行重连
+    5，根据心跳策略进行心跳保活
+ */
 @interface HESocketConnection : NSObject
 
 /**
