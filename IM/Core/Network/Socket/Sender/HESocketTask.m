@@ -8,14 +8,13 @@
 
 #import "HESocketTask.h"
 #import "HETaskIdGenerator.h"
-#import "HESocketHandler.h"
 
 @interface HESocketTask()
 
 @property(nonatomic,assign)NSUInteger identifier;   //任务id
 
-@property(nonatomic,strong,readwrite)__kindof HEReqBase *request;
-@property(nonatomic,strong,readwrite)__kindof HERespBase *response;
+@property(nonatomic,strong,readwrite)id<HESocketReqProtocol>request;
+@property(nonatomic,strong,readwrite)id<HESocketRespProtocol>response;
 
 #pragma mark - 错误信息
 @property (nonatomic, readwrite) BOOL isTaskSuccess;   //网络请求是否成功
@@ -47,12 +46,12 @@
 @end
 
 @implementation HESocketTask
-+ (instancetype)taskWithRequest:(HEReqBase *)request{
++ (instancetype)taskWithRequest:(id<HESocketReqProtocol>)request{
     HESocketTask *task = [[HESocketTask alloc]initWithRequest:request];
     return task;
 }
 
-- (instancetype)initWithRequest:(HEReqBase *)request{
+- (instancetype)initWithRequest:(id<HESocketReqProtocol>)request{
     if (self = [super init]) {
         self.request = request;
         self.identifier = [[HETaskIdGenerator shareInstance] createId];

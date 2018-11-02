@@ -43,14 +43,14 @@
 - (void)openConnection{
     NSAssert(self.connectParam.host.length > 0, @"host is nil");
     NSAssert(self.connectParam.port > 0, @"port is 0");
-    
+
     __weak typeof(self) weakSelf = self;
     [self dispatchOnSocketQueue:^{
         [weakSelf disconnect];
-        
+
         weakSelf.asyncSocket = [[GCDAsyncSocket alloc] initWithDelegate:weakSelf delegateQueue:weakSelf.socketQueue];
         [weakSelf.asyncSocket setIPv4PreferredOverIPv6:NO];
-        
+
         /**
          todo:
          可以配置多个ip， 根据权重排序，然后遍历链接。直到不返回error
@@ -98,7 +98,6 @@
         [weakSelf.asyncSocket writeData:data withTimeout:timeout tag:tag];
     } async:YES];
 }
-
 
 #pragma mark - 回调
 - (void)didDisconnectWithError:(NSError *)err{
@@ -151,7 +150,7 @@
             [weakSelf openConnection];
         }];
         DebugLog(@"开启重连定时器，重连次数:%lu of %lu, 延时:%f",(unsigned long)connectPolicy.currentRetryCount,connectPolicy.maxRetryCount,interval);
-    else{
+    }else{
         NSDictionary *userInfo = @{@"msg":@"到达最大重连次数，连接失败"};
         NSError *error = [NSError errorWithDomain:@"RHSocketService" code:1 userInfo:userInfo];
         [self.delegate connection:self closedWithError:error];

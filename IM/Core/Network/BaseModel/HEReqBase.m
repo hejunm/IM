@@ -19,7 +19,7 @@
     return [[self alloc]init];
 }
 
-#pragma mark - HESocketReqContentProtocol
+#pragma mark - HESocketReqProtocol
 - (NSUInteger)apiCode{
     return 0;
 }

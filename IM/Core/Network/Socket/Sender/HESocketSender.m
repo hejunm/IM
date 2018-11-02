@@ -31,8 +31,8 @@
     return self;
 }
 
-- (void)sendRequest:(HEReqBase *)request
-            success:(void (^)(HESocketTask *task, __kindof HERespBase *resp))successBlock
+- (void)sendRequest:(id<HESocketReqProtocol>)request
+            success:(void (^)(HESocketTask *task, id<HESocketRespProtocol> resp))successBlock
             failure:(void (^)(HESocketTask *task, NSError *error))failuerBlock{
     HESocketTask *task = [HESocketTask taskWithRequest:request];
     task.successBlock = successBlock;

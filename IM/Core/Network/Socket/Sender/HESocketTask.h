@@ -7,12 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HESocketReqProtocol.h"
+#import "HESocketRespProtocol.h"
 #import "HEReqBase.h"
 #import "HERespBase.h"
 
 @interface HESocketTask : NSOperation
-@property(nonatomic,strong,readonly)__kindof HEReqBase *request;
-@property(nonatomic,strong,readonly)__kindof HERespBase *response;
+@property(nonatomic,strong,readonly)id<HESocketReqProtocol>request;
+
+@property(nonatomic,strong,readonly)id<HESocketRespProtocol>response;
 
 #pragma mark - 错误信息
 @property (nonatomic, readonly) BOOL isTaskSuccess;   //网络请求是否成功
@@ -42,7 +45,7 @@
 @property (nonatomic, readonly) NSUInteger retryCount; //重试次数
 
 #pragma mark - Action
-@property (nonatomic, copy) void (^successBlock)(HESocketTask *task, __kindof HERespBase*resp);
+@property (nonatomic, copy) void (^successBlock)(HESocketTask *task, id<HESocketRespProtocol>resp);
 @property (nonatomic, copy) void (^failureBlock)(HESocketTask *task, NSError *error);
 
 + (instancetype)taskWithRequest:(HEReqBase *)request;

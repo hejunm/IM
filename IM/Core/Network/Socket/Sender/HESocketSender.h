@@ -10,10 +10,14 @@
 #import "HESocketTask.h"
 #import "HEReqBase.h"
 #import "HERespBase.h"
+#import "HESocketReqProtocol.h"
+#import "HESocketRespProtocol.h"
+
+
 
 @interface HESocketSender : NSObject
 - (instancetype)shareInstance;
-- (void)sendRequest:(HEReqBase *)request
-            success:(void (^)(HESocketTask *task, __kindof HERespBase *resp))successBlock
+- (void)sendRequest:(id<HESocketReqProtocol>)request
+            success:(void (^)(HESocketTask *task, id<HESocketRespProtocol> resp))successBlock
             failure:(void (^)(HESocketTask *task, NSError *error))failuerBlock;
 @end

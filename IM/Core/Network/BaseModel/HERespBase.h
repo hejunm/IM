@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HESocketRespProtocol.h"
 
-@interface HERespBase : NSObject
+@interface HERespBase : NSObject<HESocketRespProtocol>
 
 @end

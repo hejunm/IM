@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "HEReqHeader.h"
+#import "HESocketReqProtocol.h"
 
-@interface HEReqBase : NSObject
+@interface HEReqBase : NSObject<HESocketReqProtocol>
 
 + (instancetype)reqeustEntity;
 
@@ -17,11 +18,7 @@
 @property(nonatomic,strong)HEReqHeader *header;
 
 #pragma mark - 配置信息参数
-//缓存策略
-//重试策略
 
 #pragma mark - 子类重写
-- (NSUInteger)apiCode;
-- (NSData *)serializeToData;
-- (NSString *)responseClassName;
+
 @end
