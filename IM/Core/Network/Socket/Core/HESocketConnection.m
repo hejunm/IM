@@ -43,14 +43,14 @@
 - (void)openConnection{
     NSAssert(self.connectParam.host.length > 0, @"host is nil");
     NSAssert(self.connectParam.port > 0, @"port is 0");
-
+    
     __weak typeof(self) weakSelf = self;
     [self dispatchOnSocketQueue:^{
         [weakSelf disconnect];
-
+        
         weakSelf.asyncSocket = [[GCDAsyncSocket alloc] initWithDelegate:weakSelf delegateQueue:weakSelf.socketQueue];
         [weakSelf.asyncSocket setIPv4PreferredOverIPv6:NO];
-
+        
         /**
          todo:
          可以配置多个ip， 根据权重排序，然后遍历链接。直到不返回error
@@ -142,7 +142,7 @@
 - (void)tryToReconnect{
     HESocketConnectPolicy *connectPolicy = self.connectParam.connectPolicy;
     [self stopConnectTimer];
-     __weak typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     if(connectPolicy.canReconnect && connectPolicy.maxRetryCount > connectPolicy.currentRetryCount){
         connectPolicy.currentRetryCount ++;
         NSTimeInterval interval = connectPolicy.currentRetryCount * connectPolicy.connectDelay;

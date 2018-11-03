@@ -1,5 +1,5 @@
 //
-//  HEEncodeBase.h
+//  HEBaseEncoder.h
 //  IM
 //
 //  Created by jmhe on 2018/11/2.
@@ -10,12 +10,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HEEncodeBase : NSObject
+@interface HEBaseEncoder : NSObject
 
 /**
  下个个编码器
  */
-@property(nonatomic,strong)HEEncodeBase *next;
+@property(nonatomic,strong)HEBaseEncoder *next;
 
 /**
  编码
@@ -24,7 +24,16 @@ NS_ASSUME_NONNULL_BEGIN
  @param error   编码过程报错
  @return        编码后数据
  */
-- (id)encode:(id)packet error:(NSError **)error;
+- (id)encode:(id)packet error:(NSError *__autoreleasing *)error;
+
+
+/**
+ 创建编码错误
+
+ @param msg 出错原因
+ @return error object
+ */
+- (NSError *)createEncodeErrorWithMessage:(NSString *)msg;
 @end
 
 NS_ASSUME_NONNULL_END
