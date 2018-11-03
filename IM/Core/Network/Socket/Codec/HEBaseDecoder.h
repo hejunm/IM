@@ -22,6 +22,14 @@ NS_ASSUME_NONNULL_BEGIN
  @param decodeLength    以解码的数据长度
  @param error   解码过程出错
  @return        解码后数据
+ 
+ 这种设计存在问题：
+ 在沾包场景中有问题。
+ 如果一个data中有两个包，可以拆出两个包，但是如何将每个传递给下个解析器？如何返回两个？
+ 没有办法解决呀。
+ 所以还得用代理。。。
+ 
+ 
  */
 - (id)decodePacket:(id)packet decodeLength:(int *)decodeLength error:(NSError*__autoreleasing *)error;
 
