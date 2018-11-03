@@ -667,10 +667,10 @@
 		58736535218B56EA003F0BB7 /* Delimiter */ = {
 			isa = PBXGroup;
 			children = (
-				5822D97E218D412900BA39B4 /* HESocketDelimiterDecoder.h */,
-				5822D97F218D412900BA39B4 /* HESocketDelimiterDecoder.m */,
 				5822D981218D41BC00BA39B4 /* HESocketDelimiterEncoder.h */,
 				5822D982218D41BC00BA39B4 /* HESocketDelimiterEncoder.m */,
+				5822D97E218D412900BA39B4 /* HESocketDelimiterDecoder.h */,
+				5822D97F218D412900BA39B4 /* HESocketDelimiterDecoder.m */,
 			);
 			path = Delimiter;
 			sourceTree = "<group>";

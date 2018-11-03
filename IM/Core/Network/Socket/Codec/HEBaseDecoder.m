@@ -9,13 +9,14 @@
 #import "HEBaseDecoder.h"
 
 @implementation HEBaseDecoder
-- (id)decodePacket:(id)packet decodeLength:(int *)decodeLength error:(NSError*__autoreleasing *)error{
-    return nil;
+
+- (NSInteger)decodePacket:(id)packet output:(id<HEDecoderOutputProtocol>)output error:(NSError*__autoreleasing *)error{
+    return 0;
 }
 
-- (NSError *)createDecodeErrorWithMessage:(NSString *)msg{
+
+- (NSError *)createDecodeErrorWithCode:(NSInteger)code message:(NSString *)msg{
     NSDictionary *userInfo = @{@"msg":msg?:@""};
-    return  [NSError errorWithDomain:@"DecodeErrorDomain" code:1 userInfo:userInfo];
- 
+    return  [NSError errorWithDomain:@"DecodeErrorDomain" code:code userInfo:userInfo];
 }
 @end
