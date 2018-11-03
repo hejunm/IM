@@ -13,8 +13,8 @@
     return nil;
 }
 
-- (NSError *)createEncodeErrorWithMessage:(NSString *)msg{
+- (NSError *)createEncodeErrorWithCode:(NSInteger)code message:(NSString *)msg{
     NSDictionary *userInfo = @{@"msg":msg?:@""};
-    return  [NSError errorWithDomain:@"EncodeErrorDomain" code:1 userInfo:userInfo];
+    return  [NSError errorWithDomain:@"EncodeErrorDomain" code:code userInfo:userInfo];
 }
 @end

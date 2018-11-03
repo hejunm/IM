@@ -7,7 +7,7 @@
 //
 
 #import "HESocketResponse.h"
-#import "HEDataFormatter.h"
+#import "NSData+Utils.h"
 
 @implementation HESocketResponse
 
@@ -26,19 +26,19 @@
 }
 
 + (uint32_t)apiCodeFromData:(NSData *)data{
-    return [HEDataFormatter integer4FromData:[data subdataWithRange:NSMakeRange(0, HESocketResponseApiCodeLength)]];
+    return [NSData integer4FromData:[data subdataWithRange:NSMakeRange(0, HESocketResponseApiCodeLength)]];
 }
 
 + (uint32_t)reqIdFromData:(NSData *)data{
-    return [HEDataFormatter integer4FromData:[data subdataWithRange:NSMakeRange(HESocketResponseApiCodeLength, HESocketResponseReqIdLength)]];
+    return [NSData integer4FromData:[data subdataWithRange:NSMakeRange(HESocketResponseApiCodeLength, HESocketResponseReqIdLength)]];
 }
 
 + (uint32_t)ackIdFromData:(NSData *)data{
-    return [HEDataFormatter integer4FromData:[data subdataWithRange:NSMakeRange(HESocketResponseApiCodeLength + HESocketResponseReqIdLength, HESocketResponseAckIdLength)]];
+    return [NSData integer4FromData:[data subdataWithRange:NSMakeRange(HESocketResponseApiCodeLength + HESocketResponseReqIdLength, HESocketResponseAckIdLength)]];
 }
 
 + (uint32_t)contentLengthFromData:(NSData *)data{
-    return [HEDataFormatter integer4FromData:[data subdataWithRange:NSMakeRange(HESocketResponseApiCodeLength + HESocketResponseReqIdLength + HESocketResponseAckIdLength, HESocketResponseContentLength)]];
+    return [NSData integer4FromData:[data subdataWithRange:NSMakeRange(HESocketResponseApiCodeLength + HESocketResponseReqIdLength + HESocketResponseAckIdLength, HESocketResponseContentLength)]];
 }
 
 + (NSData *)responseContentFromData:(NSData *)data{

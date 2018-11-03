@@ -26,14 +26,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (id)encode:(id)packet error:(NSError *__autoreleasing *)error;
 
-
 /**
  创建编码错误
-
+ @param code 错误码
  @param msg 出错原因
  @return error object
  */
-- (NSError *)createEncodeErrorWithMessage:(NSString *)msg;
+- (NSError *)createEncodeErrorWithCode:(NSInteger)code message:(NSString *)msg;
+
 @end
 
 NS_ASSUME_NONNULL_END
