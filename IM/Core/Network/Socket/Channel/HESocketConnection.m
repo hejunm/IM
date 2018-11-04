@@ -27,17 +27,27 @@
 @implementation HESocketConnection
 
 - (instancetype)initWithConnectParam:(HESocketConnectParam *)connectParam{
+    if (self = [self init]) {
+        _connectParam = connectParam;
+    }
+    return self;
+}
+
+- (instancetype)init{
     if (self = [super init]) {
-        
         const char *socketQueueLabel = [[NSString stringWithFormat:@"%p_socketQueue", self] cStringUsingEncoding:NSUTF8StringEncoding];
         _socketQueue = dispatch_queue_create(socketQueueLabel, DISPATCH_QUEUE_SERIAL);
         _IsOnSocketQueueOrTargetQueueKey = &_IsOnSocketQueueOrTargetQueueKey;
         void *nonNullUnusedPointer = (__bridge void *)self;
         dispatch_queue_set_specific(_socketQueue, _IsOnSocketQueueOrTargetQueueKey, nonNullUnusedPointer, NULL);
         
-        _connectParam = connectParam;
+        _delegate = (HEMulticastDelegate<HESocketConnectionDelegate> *)[[HEMulticastDelegate alloc]init];
     }
     return self;
+}
+
+- (void)setConnectParam:(HESocketConnectParam *)connectParam{
+    self.connectParam = connectParam;
 }
 
 - (void)openConnection{

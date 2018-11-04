@@ -18,17 +18,19 @@
 @class HESocketChannel;
 
 @protocol HESocketChannelDelegate <NSObject,HESocketConnectionDelegate>
+@optional
 - (void)channel:(HESocketChannel *)channel receivedPacket:(HESocketResponse *)response;
 @end
 
 @interface HESocketChannel : HESocketConnection
 
++ (instancetype)sharedInstance;
+
 //多播代理
 @property(nonatomic,strong)HEMulticastDelegate<HESocketChannelDelegate> *delegate;
 
-//解码器
+//解码器 default is HESocketDelimiterDecoder -> HESocketResponseDecoder
 @property(nonatomic,strong)HEBaseDecoder *decoder;
 
-+ (instancetype)sharedInstance;
 @end
 

@@ -27,7 +27,7 @@
     return self;
 }
 
--(NSInteger)decodePacket:(id)packet output:(id<HEDecoderOutputProtocol>)output error:(NSError * _Nullable __autoreleasing *)error{
+-(NSUInteger)decodePacket:(id)packet output:(id<HEDecoderOutputProtocol>)output error:(NSError * _Nullable __autoreleasing *)error{
     if (![packet isKindOfClass:[NSData class]]) {
         NSAssert(NO, @"HESocketDelimiterDecoder packet must be a NSData object");
         if ( error != NULL ){

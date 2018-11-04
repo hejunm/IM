@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
  解码链中第一个decoder完成拆包操作，并且需要返回解码长度。
  之后的decoder收到的是一个单独的包，不需要返回解码长度。
  */
-- (NSInteger)decodePacket:(id)packet output:(id<HEDecoderOutputProtocol>)output error:(NSError*__autoreleasing *)error;
+- (NSUInteger)decodePacket:(id)packet output:(id<HEDecoderOutputProtocol>)output error:(NSError*__autoreleasing *)error;
 
 /**
  创建编码错误

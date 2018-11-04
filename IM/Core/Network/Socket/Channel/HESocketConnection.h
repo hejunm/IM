@@ -23,6 +23,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol HESocketConnectionDelegate <NSObject>
+@optional
 - (void)connectionOpened:(HESocketConnection *)con;
 - (void)connection:(HESocketConnection *)con  closedWithError:(NSError *)error;
 @end
@@ -31,6 +32,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 代理，多播*/
 @property(nonatomic,strong)HEMulticastDelegate<HESocketConnectionDelegate> *delegate;
+
+- (instancetype)init;
+
+- (instancetype)initWithConnectParam:(HESocketConnectParam *)connectParam;
+
+- (void)setConnectParam:(HESocketConnectParam *)connectParam;
 
 /**
  根据初始化参数建立tcp链接
@@ -71,6 +78,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)writeData:(NSData *)data timeout:(NSTimeInterval)timeout tag:(long)tag;
 
+
+/**
+ 生命周期方法，接收到数据后回调
+ @param data 接受的数据
+ @param tag 数据标记肤
+ */
+- (void)didReadWithData:(NSData *)data tag:(long)tag;
 @end
 
 NS_ASSUME_NONNULL_END
