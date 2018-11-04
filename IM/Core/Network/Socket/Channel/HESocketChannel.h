@@ -13,6 +13,8 @@
 #import <Foundation/Foundation.h>
 #import "HESocketConnection.h"
 #import "HESocketResponse.h"
+#import "HEBaseEncoder.h"
+#import "HEBaseDecoder.h"
 @class HESocketChannel;
 
 @protocol HESocketChannelDelegate <NSObject,HESocketConnectionDelegate>
@@ -20,8 +22,13 @@
 @end
 
 @interface HESocketChannel : HESocketConnection
+
+//多播代理
 @property(nonatomic,strong)HEMulticastDelegate<HESocketChannelDelegate> *delegate;
 
 //解码器
+@property(nonatomic,strong)HEBaseDecoder *decoder;
+
++ (instancetype)sharedInstance;
 @end
 

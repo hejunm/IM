@@ -7,10 +7,12 @@
 //
 
 #import "HESocketSender.h"
-
+#import "HESocketRequestEncoder.h"
+#import "HESocketDelimiterEncoder.h"
 
 @interface HESocketSender()
 @property (nonatomic, strong) NSOperationQueue *executeQueue;
+@property (nonatomic,strong)NSMapTable *mapTable;
 @end
 
 @implementation HESocketSender
@@ -27,6 +29,7 @@
 - (instancetype)init{
     if (self = [super init]) {
         self.executeQueue = [[NSOperationQueue alloc]init];
+        self.mapTable = [NSMapTable strongToWeakObjectsMapTable];
     }
     return self;
 }
@@ -37,6 +40,14 @@
     HESocketTask *task = [HESocketTask taskWithRequest:request];
     task.successBlock = successBlock;
     task.failureBlock = failuerBlock;
+    
+    HESocketRequestEncoder *reqEncoder = [[HESocketRequestEncoder alloc]init];
+    HESocketDelimiterEncoder *delimiterEncoder = [[HESocketDelimiterEncoder alloc]init];
+    reqEncoder.next = delimiterEncoder;
+    task.encoder = reqEncoder;
+    [self.mapTable setObject:task forKey:@(task.taskId)];
     [self.executeQueue addOperation:task];
 }
+
+
 @end

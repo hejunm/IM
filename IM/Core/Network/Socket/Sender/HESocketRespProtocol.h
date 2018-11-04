@@ -10,7 +10,9 @@
 #define HESocketRespProtocol_h
 
 @protocol HESocketRespProtocol <NSObject>
-+ (id)decodeDataToInstance:(NSData *)date;
+
++ (id)responseModelWithData:(NSData *)data;
+
 @end
 
 #endif /* HESocketRespProtocol_h */
