@@ -82,9 +82,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  生命周期方法，接收到数据后回调
  @param data 接受的数据
- @param tag 数据标记肤
+ @param tag 数据标记
  */
 - (void)didReadWithData:(NSData *)data tag:(long)tag;
+
+/**
+ 生命周期方法，数据发送后回调
+ @param tag 数据标记
+ */
+- (void)didWriteWithTag:(long)tag;
 @end
 
 NS_ASSUME_NONNULL_END

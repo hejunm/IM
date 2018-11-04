@@ -13,6 +13,7 @@
 #import "HESocketConnectPolicy.h"
 #import "HESocketHeartbeatPolicy.h"
 #import "NSTimer+BlockSupport.h"
+#import "HESocketSender.h"
 
 @interface HESocketConnection()<GCDAsyncSocketDelegate>
 @property (nonatomic, strong) HESocketConnectParam *connectParam;
@@ -112,14 +113,19 @@
 #pragma mark - 回调
 - (void)didDisconnectWithError:(NSError *)err{
     [self tryToReconnect];
+    [self stopHeatBeatTimer];
 }
 
 - (void)didConnectToHost:(NSString *)host port:(uint16_t)port{
-    //override
+    [self tryToStartHeatBeat];
 }
 
 - (void)didReadWithData:(NSData *)data tag:(long)tag{
-    //override
+    [self resetHeatBeatTimer];
+}
+
+- (void)didWriteWithTag:(long)tag{
+    [self resetHeatBeatTimer];
 }
 
 #pragma mark - GCDAsyncSocketDelegate
@@ -136,7 +142,7 @@
 }
 
 - (void)socketDidSecure:(GCDAsyncSocket *)sock{
-    [self didConnectToHost:sock.connectedHost port:sock.connectedPort];
+//    [self didConnectToHost:sock.connectedHost port:sock.connectedPort];
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag{
@@ -145,6 +151,7 @@
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag{
+    [self didWriteWithTag:tag];
     [sock readDataWithTimeout:-1 tag:tag];
 }
 
@@ -152,10 +159,11 @@
 - (void)tryToReconnect{
     HESocketConnectPolicy *connectPolicy = self.connectParam.connectPolicy;
     [self stopConnectTimer];
-    __weak typeof(self) weakSelf = self;
+    
     if(connectPolicy.canReconnect && connectPolicy.maxRetryCount > connectPolicy.currentRetryCount){
         connectPolicy.currentRetryCount ++;
         NSTimeInterval interval = connectPolicy.currentRetryCount * connectPolicy.connectDelay;
+        __weak typeof(self) weakSelf = self;
         weakSelf.reconnectTimer = [NSTimer heScheduledTimerWithTimeInterval:interval repeats:NO handlerBlock:^{
             [weakSelf openConnection];
         }];
@@ -176,7 +184,46 @@
 }
 
 #pragma mark - 心跳
+- (void)tryToStartHeatBeat{
+    HESocketHeartbeatPolicy *policy = self.connectParam.heartbeatPolicy;
+    if (!policy.enabled) {
+        return;
+    }
+    [self stopHeatBeatTimer];
+    __weak typeof(self) weakSelf = self;
+    weakSelf.heartbeatTimer = [NSTimer heScheduledTimerWithTimeInterval:policy.interval repeats:YES handlerBlock:^{
+        [weakSelf sendHeartBeat];
+    }];
+}
 
+- (void)resetHeatBeatTimer{
+    [self tryToReconnect];
+}
+
+- (void)stopHeatBeatTimer{
+    [self.heartbeatTimer invalidate];
+    self.heartbeatTimer = nil;
+}
+
+- (void)sendHeartBeat{
+//    //发心跳包
+//    [[HESocketSender shareInstance] sendRequest:nil success:^(HESocketTask *task, id<HESocketRespProtocol> resp) {
+//        [self dispatchOnSocketQueue:^{
+//            self.connectParam.heartbeatPolicy.currentRetryCount = 0;
+//        } async:YES];
+//    } failure:^(HESocketTask *task, NSError *error) {
+//        [self dispatchOnSocketQueue:^{
+//            [self stopHeatBeatTimer];
+//            HESocketHeartbeatPolicy *policy = self.connectParam.heartbeatPolicy;
+//            policy.currentRetryCount ++;
+//            if (policy.currentRetryCount > policy.maxRetryCount) {//重连
+//                [self openConnection];
+//            }else{
+//                [self performSelector:@selector(sendHeartBeat) withObject:nil afterDelay:policy.retryDelay];
+//            }
+//        } async:YES];
+//    }];
+}
 
 #pragma mark - private method
 - (BOOL)isOnSocketQueue{

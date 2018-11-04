@@ -38,6 +38,7 @@
 }
 
 - (void)didReadWithData:(NSData *)data tag:(long)tag{
+    [super didReadWithData:data tag:tag];
     if (data.length == 0) {
         return;
     }

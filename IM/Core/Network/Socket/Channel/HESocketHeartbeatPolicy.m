@@ -12,7 +12,10 @@
 - (instancetype)init{
     if (self = [super init]) {
         _enabled = YES;
-        _interval = 20;
+        _interval = 120;
+        _maxRetryCount = 5;
+        _currentRetryCount = 0;
+        _retryDelay = 10;
     }
     return self;
 }

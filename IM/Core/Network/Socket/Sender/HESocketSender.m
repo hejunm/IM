@@ -20,7 +20,7 @@
 
 @implementation HESocketSender
 
-- (instancetype)shareInstance{
++ (instancetype)shareInstance{
     static HESocketSender *instance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

@@ -16,7 +16,7 @@
 
 
 @interface HESocketSender : NSObject
-- (instancetype)shareInstance;
++ (instancetype)shareInstance;
 - (void)sendRequest:(id<HESocketReqProtocol>)request
             success:(void (^)(HESocketTask *task, id<HESocketRespProtocol> resp))successBlock
             failure:(void (^)(HESocketTask *task, NSError *error))failuerBlock;
