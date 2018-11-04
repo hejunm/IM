@@ -612,7 +612,7 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		5822D984218D423500BA39B4 /* ReqEncoder */ = {
+		5822D984218D423500BA39B4 /* ReqResp */ = {
 			isa = PBXGroup;
 			children = (
 				5822D985218D461B00BA39B4 /* HESocketRequestEncoder.h */,
@@ -622,7 +622,7 @@
 				58128F8E218EA2D500B01119 /* HESocketResponse.h */,
 				58128F8F218EA2D500B01119 /* HESocketResponse.m */,
 			);
-			path = ReqEncoder;
+			path = ReqResp;
 			sourceTree = "<group>";
 		};
 		5822D988218D467600BA39B4 /* Protobuf */ = {
@@ -670,7 +670,7 @@
 			isa = PBXGroup;
 			children = (
 				58128F8D218EA25D00B01119 /* Base */,
-				5822D984218D423500BA39B4 /* ReqEncoder */,
+				5822D984218D423500BA39B4 /* ReqResp */,
 				58736535218B56EA003F0BB7 /* Delimiter */,
 				5822D988218D467600BA39B4 /* Protobuf */,
 			);

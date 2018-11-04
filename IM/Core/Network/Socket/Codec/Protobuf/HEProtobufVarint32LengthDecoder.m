@@ -20,9 +20,9 @@
 - (NSUInteger)decodePacket:(id)packet output:(id<HEDecoderOutputProtocol>)output error:(NSError*__autoreleasing *)error{
     if (![packet isKindOfClass:[NSData class]]) {
         NSAssert(NO, @"HEProtobufVarint32LengthDecoder packet must be a NSData object");
-        if (error != NULL ){
-            *error = [self createDecodeErrorWithCode:1 message:@"HEProtobufVarint32LengthDecoder packet must be a NSData object!"];
-        }
+//        if (error != NULL ){
+//            *error = [self createDecodeErrorWithCode:1 message:@"HEProtobufVarint32LengthDecoder packet must be a NSData object!"];
+//        }
         return 0;
     }
     

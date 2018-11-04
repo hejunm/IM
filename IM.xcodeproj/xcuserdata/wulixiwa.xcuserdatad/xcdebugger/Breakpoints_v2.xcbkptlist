@@ -17,6 +17,38 @@
             endingLineNumber = "149"
             landmarkName = "-forwardInvocation:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HEMulticastDelegate forwardInvocation:]"
+                  moduleName = "IM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wulixiwa/Desktop/IM/IM/Core/Utils/HEMulticastDelegate.m"
+                  timestampString = "563025997.6110131"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
+                  offsetFromSymbolStart = "914">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HEMulticastDelegate forwardInvocation:]"
+                  moduleName = "IM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wulixiwa/Desktop/IM/IM/Core/Utils/HEMulticastDelegate.m"
+                  timestampString = "563025997.614175"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
+                  offsetFromSymbolStart = "919">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
