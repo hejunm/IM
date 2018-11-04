@@ -9,7 +9,7 @@
 #import "HETaskIdGenerator.h"
 
 @interface HETaskIdGenerator()
-@property(nonatomic,assign)NSUInteger currentIndex;
+@property(nonatomic,assign)uint32_t currentIndex;
 @end
 
 @implementation HETaskIdGenerator
@@ -30,9 +30,10 @@
     return self;
 }
 
-- (NSUInteger)createId{
+- (uint32_t)createId{
     @synchronized(self) {
-        if (self.currentIndex == NSUIntegerMax) {
+        
+        if (self.currentIndex == UINT32_MAX) {
             self.currentIndex = 1;
         }
         return self.currentIndex++;

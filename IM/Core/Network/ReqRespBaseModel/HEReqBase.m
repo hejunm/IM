@@ -20,9 +20,17 @@
 }
 
 #pragma mark - HESocketReqProtocol
-- (NSUInteger)apiCode{
+- (uint32_t)apiCode{
     return 0;
 }
+- (void)setTaskId:(uint32_t)taskId{
+    self.header.taskId = taskId;
+}
+
+- (uint32_t)taskId{
+     return self.header.taskId;
+}
+
 - (NSData *)serializeToData{
     return nil;
 }

@@ -11,8 +11,7 @@
 
 @interface HESocketTask()
 
-@property(nonatomic,assign)NSUInteger identifier;   //任务id
-
+@property(nonatomic,assign)uint32_t taskId;   //任务id
 @property(nonatomic,strong,readwrite)id<HESocketReqProtocol>request;
 @property(nonatomic,strong,readwrite)id<HESocketRespProtocol>response;
 
@@ -53,8 +52,12 @@
 
 - (instancetype)initWithRequest:(id<HESocketReqProtocol>)request{
     if (self = [super init]) {
+        if (![request conformsToProtocol:@protocol(HESocketReqProtocol)]) {
+            NSAssert(NO, @"request must conformsToProtocol HESocketReqProtocol");
+        }
+        self.taskId = [[HETaskIdGenerator shareInstance] createId];
+        [request setTaskId:self.taskId];
         self.request = request;
-        self.identifier = [[HETaskIdGenerator shareInstance] createId];
     }
     return self;
 }

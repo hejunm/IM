@@ -11,5 +11,5 @@
 
 @interface HETaskIdGenerator : NSObject
 +(instancetype) shareInstance;
-- (NSUInteger)createId;
+- (uint32_t)createId;
 @end

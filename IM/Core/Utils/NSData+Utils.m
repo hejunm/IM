@@ -40,35 +40,35 @@
     return dstData;
 }
 
-+ (NSData *)byteFromInt8:(int8_t)val
++ (NSData *)byteFromUInt8:(uint8_t)val
 {
     NSMutableData *valData = [[NSMutableData alloc] init];
     [valData appendBytes:&val length:1];
     return valData;
 }
 
-+ (NSData *)bytesFromInt16:(int16_t)val
++ (NSData *)bytesFromUInt16:(uint16_t)val
 {
     NSMutableData *valData = [[NSMutableData alloc] init];
     [valData appendBytes:&val length:2];
     return valData;
 }
 
-+ (NSData *)bytesFromInt32:(int32_t)val
++ (NSData *)bytesFromUInt32:(uint32_t)val
 {
     NSMutableData *valData = [[NSMutableData alloc] init];
     [valData appendBytes:&val length:4];
     return valData;
 }
 
-+ (NSData *)bytesFromInt64:(int64_t)val
++ (NSData *)bytesFromUInt64:(uint64_t)val
 {
     NSMutableData *tempData = [[NSMutableData alloc] init];
     [tempData appendBytes:&val length:8];
     return tempData;
 }
 
-+ (NSData *)bytesFromValue:(int64_t)value byteCount:(int)byteCount
++ (NSData *)bytesFromValue:(uint64_t)value byteCount:(int)byteCount
 {
     NSMutableData *valData = [[NSMutableData alloc] init];
     int64_t tempVal = value;
@@ -84,7 +84,7 @@
     return valData;
 }
 
-+ (NSData *)bytesFromValue:(int64_t)value byteCount:(int)byteCount reverse:(BOOL)reverse
++ (NSData *)bytesFromValue:(uint64_t)value byteCount:(int)byteCount reverse:(BOOL)reverse
 {
     NSData *tempData = [self bytesFromValue:value byteCount:byteCount];
     if (reverse) {
@@ -94,7 +94,7 @@
     return [self dataWithReverse:tempData];
 }
 
-+ (int8_t)int8FromBytes:(NSData *)data
++ (uint8_t)uint8FromBytes:(NSData *)data
 {
     NSAssert(data.length >= 1, @"uint8FromBytes: (data length < 1)");
     
@@ -103,7 +103,7 @@
     return val;
 }
 
-+ (int16_t)int16FromBytes:(NSData *)data
++ (uint16_t)uint16FromBytes:(NSData *)data
 {
     NSAssert(data.length >= 2, @"uint16FromBytes: (data length < 2)");
     
@@ -112,7 +112,7 @@
     return val;
 }
 
-+ (int32_t)int32FromBytes:(NSData *)data
++ (uint32_t)uint32FromBytes:(NSData *)data
 {
     NSAssert(data.length >= 4, @"uint16FromBytes: (data length < 4)");
     
@@ -121,7 +121,7 @@
     return val;
 }
 
-+ (int64_t)int64FromBytes:(NSData *)data
++ (uint64_t)uint64FromBytes:(NSData *)data
 {
     NSAssert(data.length >= 8, @"uint16FromBytes: (data length < 8)");
     
@@ -130,7 +130,7 @@
     return val;
 }
 
-+ (int64_t)valueFromBytes:(NSData *)data
++ (uint64_t)valueFromBytes:(NSData *)data
 {
     NSUInteger dataLen = data.length;
     int64_t value = 0;
@@ -146,7 +146,7 @@
     return value;
 }
 
-+ (int64_t)valueFromBytes:(NSData *)data reverse:(BOOL)reverse
++ (uint64_t)valueFromBytes:(NSData *)data reverse:(BOOL)reverse
 {
     NSData *tempData = data;
     if (reverse) {
@@ -156,7 +156,7 @@
 }
 
 #pragma mark - 变长 Varint32
-+ (NSData *)dataWithRawVarint32:(int64_t)value{
++ (NSData *)dataWithRawVarint32:(uint64_t)value{
     NSMutableData *valData = [[NSMutableData alloc] init];
     while (true) {
         if ((value & ~0x7F) == 0) {//如果最高位是0，只要一个字节表示
@@ -171,7 +171,7 @@
     return valData;
 }
 
-+ (int64_t)valueWithVarint32Data:(NSData *)data{
++ (uint64_t)valueWithVarint32Data:(NSData *)data{
     NSUInteger dataLen = data.length;
     int64_t value = 0;
     int offset = 0;
@@ -198,7 +198,7 @@
     while (testIndex < maxCountOfLengthByte) {
         NSRange lengthRange = NSMakeRange(testIndex, 1);
         NSData *oneByte = [frameData subdataWithRange:lengthRange];
-        int8_t oneValue = [self int8FromBytes:oneByte];
+        int8_t oneValue = [self uint8FromBytes:oneByte];
         
         if ((oneValue & 0x80) == 0) {
             countOfLengthByte = testIndex + 1;

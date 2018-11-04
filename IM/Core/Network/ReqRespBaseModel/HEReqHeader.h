@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HEReqHeader : NSObject
-
+@property(nonatomic,assign)uint32_t taskId;   //任务id
 @end
 
 NS_ASSUME_NONNULL_END

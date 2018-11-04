@@ -11,7 +11,9 @@
 
 @protocol HESocketReqProtocol <NSObject>
 @required
-- (NSUInteger)apiCode;
+- (uint32_t)apiCode;
+- (void)setTaskId:(uint32_t)taskId;
+- (uint32_t)taskId;
 - (NSData *)serializeToData;
 - (NSString *)responseClassName;
 @end
