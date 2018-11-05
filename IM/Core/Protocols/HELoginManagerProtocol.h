@@ -126,7 +126,7 @@ typedef NS_ENUM(NSInteger, HEKickReason){
 /**
  *  登录协议
  */
-@protocol HELoginManager <NSObject>
+@protocol HELoginManagerProtocol <NSObject>
 /**
  *  登录
  *

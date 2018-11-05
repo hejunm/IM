@@ -100,7 +100,7 @@ typedef NS_ENUM(NSInteger, HEUserInfoUpdateTag) {
 /**
  *  好友协议
  */
-@protocol HEUserManager <NSObject>
+@protocol HEUserManagerProtocol <NSObject>
 
 /**
  *  添加好友

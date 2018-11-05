@@ -27,13 +27,6 @@
 
 @implementation HESocketConnection
 
-- (instancetype)initWithConnectParam:(HESocketConnectParam *)connectParam{
-    if (self = [self init]) {
-        _connectParam = connectParam;
-    }
-    return self;
-}
-
 - (instancetype)init{
     if (self = [super init]) {
         const char *socketQueueLabel = [[NSString stringWithFormat:@"%p_socketQueue", self] cStringUsingEncoding:NSUTF8StringEncoding];
@@ -69,7 +62,6 @@
         NSError *error = nil;
         [weakSelf.asyncSocket connectToHost:self.connectParam.host onPort:self.connectParam.port withTimeout:self.connectParam.connectPolicy.timeout error:&error];
         if (error) {
-            [self didDisconnectWithError:error];
             //上传error信息
         }
     } async:YES];

@@ -58,7 +58,7 @@ typedef void(^HEDownloadCompleteBlock)(NSError * __nullable error);
 /**
  *  资源管理
  */
-@protocol HEResourceManager <NSObject>
+@protocol HEResourceManagerProtocol <NSObject>
 
 /**
  *  上传文件

@@ -35,8 +35,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init;
 
-- (instancetype)initWithConnectParam:(HESocketConnectParam *)connectParam;
-
 - (void)setConnectParam:(HESocketConnectParam *)connectParam;
 
 /**

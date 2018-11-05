@@ -31,7 +31,6 @@
 		0EB55913218014F9007036E9 /* HESocketTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB55912218014F9007036E9 /* HESocketTask.m */; };
 		0EB61BAE21798D4C00ED53BF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB61BAD21798D4C00ED53BF /* Reachability.m */; };
 		0EB61BB12179904400ED53BF /* InternetReachabilityTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB61BB02179904400ED53BF /* InternetReachabilityTool.m */; };
-		0EB61BB42179B5D400ED53BF /* HETCPSocketService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB61BB32179B5D400ED53BF /* HETCPSocketService.m */; };
 		0EB7A3E6217604C40075C750 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A3E5217604C40075C750 /* AppDelegate.m */; };
 		0EB7A3E9217604C40075C750 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A3E8217604C40075C750 /* ViewController.m */; };
 		0EB7A3EC217604C40075C750 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EB7A3EA217604C40075C750 /* Main.storyboard */; };
@@ -148,8 +147,6 @@
 		0EB61BAD21798D4C00ED53BF /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		0EB61BAF2179904400ED53BF /* InternetReachabilityTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InternetReachabilityTool.h; sourceTree = "<group>"; };
 		0EB61BB02179904400ED53BF /* InternetReachabilityTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InternetReachabilityTool.m; sourceTree = "<group>"; };
-		0EB61BB22179B5D400ED53BF /* HETCPSocketService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HETCPSocketService.h; sourceTree = "<group>"; };
-		0EB61BB32179B5D400ED53BF /* HETCPSocketService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HETCPSocketService.m; sourceTree = "<group>"; };
 		0EB7A3E1217604C40075C750 /* IM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EB7A3E4217604C40075C750 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0EB7A3E5217604C40075C750 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -372,8 +369,8 @@
 			isa = PBXGroup;
 			children = (
 				0EB7A5492176148F0075C750 /* Network */,
-				0EB7A53821760BF20075C750 /* IMModel */,
 				0EB7A470217608BD0075C750 /* Utils */,
+				0EB7A53821760BF20075C750 /* IMModel */,
 				0EB7A474217608BD0075C750 /* Protocols */,
 				0EB7A53C21760E010075C750 /* HEIMSDK.h */,
 				0EB7A53D21760E010075C750 /* HEIMSDK.m */,
@@ -412,8 +409,8 @@
 				0EB7A5422176107D0075C750 /* HEChatroomManagerProtocol.h */,
 				0EB7A545217612020075C750 /* HERedPacketManagerProtocol.h */,
 				0EB7A546217612140075C750 /* HEResourceManagerProtocol.h */,
-				0EB7A543217610980075C750 /* HEDocTranscodingManagerProtocol.h */,
 				0EB7A541217610030075C750 /* HEMediaManagerProtocol.h */,
+				0EB7A543217610980075C750 /* HEDocTranscodingManagerProtocol.h */,
 				0EB7A544217611D90075C750 /* HEMessageContentProtocol.h */,
 			);
 			path = Protocols;
@@ -548,8 +545,6 @@
 		0EB7A53821760BF20075C750 /* IMModel */ = {
 			isa = PBXGroup;
 			children = (
-				0EB61BB22179B5D400ED53BF /* HETCPSocketService.h */,
-				0EB61BB32179B5D400ED53BF /* HETCPSocketService.m */,
 				0EB7A53921760C180075C750 /* HEMessage.h */,
 				0EB7A53A21760C180075C750 /* HEMessage.m */,
 				0EB7A54A2176170A0075C750 /* HELoginClient.h */,
@@ -860,7 +855,6 @@
 				0EB7A4B9217608BD0075C750 /* FMDatabaseAdditions.m in Sources */,
 				0E3FCEBE217709D80025DD61 /* HESession.m in Sources */,
 				580D2DB8217B062C001D5200 /* HEMulticastDelegate.m in Sources */,
-				0EB61BB42179B5D400ED53BF /* HETCPSocketService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

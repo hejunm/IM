@@ -133,7 +133,7 @@ typedef void(^HEGlobalSearchMessageBlock)(NSError * __nullable error,NSDictionar
 /**
  *  会话管理器
  */
-@protocol HEConversationManager <NSObject>
+@protocol HEConversationManagerProtocol <NSObject>
 
 /**
  *  删除某条消息

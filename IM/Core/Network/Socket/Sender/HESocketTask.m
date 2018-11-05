@@ -120,13 +120,11 @@
         [self dispatchOnMainQueue:^{
             self.successBlock(self, response);
         }];
-        return;
     }else{//解析失败
         self.error = [NSError errorWithDomain:@"数据解析出错" code:1 userInfo:nil];
         [self dispatchOnMainQueue:^{
             self.failureBlock(self, self.error);
         }];
-        return;
     }
 }
 

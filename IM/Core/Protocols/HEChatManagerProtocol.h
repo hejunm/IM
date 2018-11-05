@@ -138,7 +138,7 @@ didCompleteWithError:(nullable NSError *)error;
 /**
  *  聊天协议
  */
-@protocol HEChatManager <NSObject>
+@protocol HEChatManagerProtocol <NSObject>
 /**
  *  发送消息
  *
