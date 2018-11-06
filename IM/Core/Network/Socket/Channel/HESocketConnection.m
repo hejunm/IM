@@ -32,7 +32,7 @@
 }
 
 - (instancetype)initWithConnectParam:(HESocketConnectParam *)connectParam{
-    if (self = [self init]) {
+    if (self = [super init]) {
         const char *socketQueueLabel = [[NSString stringWithFormat:@"%p_socketQueue", self] cStringUsingEncoding:NSUTF8StringEncoding];
         _socketQueue = dispatch_queue_create(socketQueueLabel, DISPATCH_QUEUE_SERIAL);
         _IsOnSocketQueueOrTargetQueueKey = &_IsOnSocketQueueOrTargetQueueKey;

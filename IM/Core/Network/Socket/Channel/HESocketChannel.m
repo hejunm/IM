@@ -17,6 +17,8 @@
 @implementation HESocketChannel
 @dynamic delegate;
 
+
+
 - (instancetype)init{
     if (self = [super init]) {
         HESocketResponseDecoder *responseDecoder = [[HESocketResponseDecoder alloc]init];

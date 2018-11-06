@@ -14,16 +14,18 @@
 #import "HESocketChannel.h"
 
 @interface HESocketSender()<HESocketChannelDelegate>
-@property (nonatomic, strong) NSOperationQueue *executeQueue;
-@property (nonatomic,strong)NSMapTable *mapTable;
+@property (nonatomic,   strong)NSOperationQueue *executeQueue;
+@property (nonatomic,   strong)NSMapTable *mapTable;
+@property (nonatomic,   weak)HESocketChannel *socketChannel;
 @end
 
 @implementation HESocketSender
 
-- (instancetype)init{
+- (instancetype)initWithChannel:(HESocketChannel *)socketChannel{
     if (self = [super init]) {
         self.executeQueue = [[NSOperationQueue alloc]init];
         self.mapTable = [NSMapTable strongToWeakObjectsMapTable];
+        self.socketChannel = socketChannel;
     }
     return self;
 }
@@ -34,6 +36,7 @@
     HESocketTask *task = [HESocketTask taskWithRequest:request];
     task.successBlock = successBlock;
     task.failureBlock = failuerBlock;
+    task.socketChannel = self.socketChannel;
     
     HESocketRequestEncoder *reqEncoder = [[HESocketRequestEncoder alloc]init];
     HESocketDelimiterEncoder *delimiterEncoder = [[HESocketDelimiterEncoder alloc]init];

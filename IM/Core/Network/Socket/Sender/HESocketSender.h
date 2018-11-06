@@ -13,9 +13,12 @@
 #import "HESocketReqProtocol.h"
 #import "HESocketRespProtocol.h"
 
+@class HESocketChannel;
 
 
 @interface HESocketSender : NSObject
+
+- (instancetype)initWithChannel:(HESocketChannel *)socketChannel;
 
 - (void)sendRequest:(id<HESocketReqProtocol>)request
             success:(void (^)(HESocketTask *task, id<HESocketRespProtocol> resp))successBlock

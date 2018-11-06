@@ -96,7 +96,7 @@
     }
     
     //--- 发起服务 ---
-    [[HESocketChannel sharedInstance]writeData:encodedData timeout:-1 tag:0];
+    [self.socketChannel writeData:encodedData timeout:-1 tag:0];
     [self sleep];
     
     if (self.cancelled) {

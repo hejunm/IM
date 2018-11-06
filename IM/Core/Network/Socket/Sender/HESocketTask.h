@@ -10,11 +10,13 @@
 #import "HESocketReqProtocol.h"
 #import "HESocketRespProtocol.h"
 #import "HEBaseEncoder.h"
+#import "HESocketChannel.h"
 
 @interface HESocketTask : NSOperation
 @property(nonatomic,assign,readonly)uint32_t taskId; 
 @property(nonatomic,strong,readonly)id<HESocketReqProtocol>request;
 @property(nonatomic,strong,readonly)id<HESocketRespProtocol>response;
+@property (nonatomic,   weak)HESocketChannel *socketChannel;
 @property(nonatomic,strong)HEBaseEncoder *encoder;
 
 //#pragma mark - 错误信息

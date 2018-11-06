@@ -31,13 +31,14 @@
     connectParam.port = 20162;
     self.socketChannel = [[HESocketChannel alloc]initWithConnectParam:connectParam];
     
-    self.senderManager = [[HESocketSender alloc]init];
+    self.senderManager = [[HESocketSender alloc] initWithChannel:self.socketChannel];
     [self.socketChannel.delegate addDelegate:self.senderManager];
     [self.socketChannel openConnection];
     
-    ////注册代理，接受数据
-
-    //登录
+    //网络监听
+    
+    
+    
     //各种管理器的创建
 }
 
