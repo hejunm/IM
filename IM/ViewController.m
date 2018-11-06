@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "HEIMSDK.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *contentTextField;
@@ -17,13 +18,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[HEIMSDK sharedInstance] setup];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (IBAction)connect:(id)sender {
+    
 }
 
 - (IBAction)desConnect:(id)sender {
+    
 }
 
 - (IBAction)sender:(id)sender {

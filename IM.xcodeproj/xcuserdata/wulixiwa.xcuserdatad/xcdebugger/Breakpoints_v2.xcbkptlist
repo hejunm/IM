@@ -26,7 +26,7 @@
                   moduleName = "IM"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wulixiwa/Desktop/IM/IM/Core/Utils/HEMulticastDelegate.m"
-                  timestampString = "563025997.6110131"
+                  timestampString = "563122286.922874"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "149"
@@ -41,7 +41,7 @@
                   moduleName = "IM"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wulixiwa/Desktop/IM/IM/Core/Utils/HEMulticastDelegate.m"
-                  timestampString = "563025997.614175"
+                  timestampString = "563122286.925717"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "149"
@@ -90,13 +90,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IM/ViewController.m"
-            timestampString = "561803989.5059609"
+            timestampString = "563122286.896919"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "ViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

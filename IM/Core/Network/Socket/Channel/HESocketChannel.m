@@ -17,15 +17,6 @@
 @implementation HESocketChannel
 @dynamic delegate;
 
-+ (instancetype)sharedInstance{
-    static id sharedInstance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedInstance = [[self alloc] init];
-    });
-    return sharedInstance;
-}
-
 - (instancetype)init{
     if (self = [super init]) {
         HESocketResponseDecoder *responseDecoder = [[HESocketResponseDecoder alloc]init];

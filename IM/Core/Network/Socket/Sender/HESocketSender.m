@@ -20,22 +20,10 @@
 
 @implementation HESocketSender
 
-+ (instancetype)shareInstance{
-    static HESocketSender *instance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        instance = [[HESocketSender alloc]init];
-    });
-    return instance;
-}
-
 - (instancetype)init{
     if (self = [super init]) {
         self.executeQueue = [[NSOperationQueue alloc]init];
         self.mapTable = [NSMapTable strongToWeakObjectsMapTable];
-        
-        //注册代理，接受数据
-        [[HESocketChannel sharedInstance].delegate addDelegate:self];
     }
     return self;
 }

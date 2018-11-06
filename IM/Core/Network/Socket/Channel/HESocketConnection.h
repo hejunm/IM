@@ -34,8 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)HEMulticastDelegate<HESocketConnectionDelegate> *delegate;
 
 - (instancetype)init;
-
-- (void)setConnectParam:(HESocketConnectParam *)connectParam;
+- (instancetype)initWithConnectParam:(HESocketConnectParam *)connectParam;
 
 /**
  根据初始化参数建立tcp链接

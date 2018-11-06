@@ -15,6 +15,7 @@
 @class HEDeleteMessagesOption;
 @class HEMessageSearchOption;
 @class HEHistoryMessageSearchOption;
+@class HEImportedRecentSession;
 
 
 

@@ -24,8 +24,6 @@
 
 @interface HESocketChannel : HESocketConnection
 
-+ (instancetype)sharedInstance;
-
 //多播代理
 @property(nonatomic,strong)HEMulticastDelegate<HESocketChannelDelegate> *delegate;
 

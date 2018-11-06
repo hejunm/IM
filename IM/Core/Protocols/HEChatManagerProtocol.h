@@ -7,8 +7,10 @@
 //  聊天操作
 
 @class HEMessage;
+@class HESession;
 @class HEMessageReceipt;
 @class HETeamMessageReceiptDetail;
+@class HERevokeMessageNotification;
 
 #ifndef HEChatManagerProtocol_h
 #define HEChatManagerProtocol_h

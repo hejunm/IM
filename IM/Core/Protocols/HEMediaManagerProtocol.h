@@ -13,7 +13,3 @@
 //  Created by Netease.
 //  Copyright (c) 2015 Netease. All rights reserved.
 //
-
-#import <Foundation/Foundation.h>
-
-

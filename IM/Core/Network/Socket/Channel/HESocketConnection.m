@@ -28,7 +28,11 @@
 @implementation HESocketConnection
 
 - (instancetype)init{
-    if (self = [super init]) {
+    return [self initWithConnectParam:nil];
+}
+
+- (instancetype)initWithConnectParam:(HESocketConnectParam *)connectParam{
+    if (self = [self init]) {
         const char *socketQueueLabel = [[NSString stringWithFormat:@"%p_socketQueue", self] cStringUsingEncoding:NSUTF8StringEncoding];
         _socketQueue = dispatch_queue_create(socketQueueLabel, DISPATCH_QUEUE_SERIAL);
         _IsOnSocketQueueOrTargetQueueKey = &_IsOnSocketQueueOrTargetQueueKey;
@@ -36,12 +40,10 @@
         dispatch_queue_set_specific(_socketQueue, _IsOnSocketQueueOrTargetQueueKey, nonNullUnusedPointer, NULL);
         
         _delegate = (HEMulticastDelegate<HESocketConnectionDelegate> *)[[HEMulticastDelegate alloc]init];
+        
+        _connectParam = connectParam;
     }
     return self;
-}
-
-- (void)setConnectParam:(HESocketConnectParam *)connectParam{
-    self.connectParam = connectParam;
 }
 
 - (void)openConnection{
@@ -122,10 +124,12 @@
 
 #pragma mark - GCDAsyncSocketDelegate
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err{
+    DebugLog(@"断开链接");
     [self didDisconnectWithError:err];
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port{
+    DebugLog(@"建立连接");
     if (self.connectParam.useSecureConnection) {
         [sock startTLS:self.connectParam.tlsSettings];
         return;
@@ -134,15 +138,18 @@
 }
 
 - (void)socketDidSecure:(GCDAsyncSocket *)sock{
+    DebugLog(@"建立安全连接");
 //    [self didConnectToHost:sock.connectedHost port:sock.connectedPort];
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag{
+    DebugLog(@"接受到数据");
     [self didReadWithData:data tag:tag];
     [sock readDataWithTimeout:-1 tag:tag];
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag{
+    DebugLog(@"发送数据");
     [self didWriteWithTag:tag];
     [sock readDataWithTimeout:-1 tag:tag];
 }
