@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "HEIMSDK.h"
+#import "HEMessage.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *contentTextField;
@@ -31,6 +32,13 @@
 }
 
 - (IBAction)sender:(id)sender {
+    HEMessage *message = [[HEMessage alloc]init];
+    message.content = self.contentTextField.text;
+    [[HEIMSDK sharedInstance].senderManager sendRequest:message success:^(HESocketTask *task, id<HESocketRespProtocol> resp) {
+        NSLog(@"resp");
+    } failure:^(HESocketTask *task, NSError *error) {
+        NSLog(@"失败");
+    }];
 }
 
 //字典转为Json字符串

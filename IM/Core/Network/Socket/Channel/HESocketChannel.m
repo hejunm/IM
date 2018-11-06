@@ -18,9 +18,8 @@
 @dynamic delegate;
 
 
-
-- (instancetype)init{
-    if (self = [super init]) {
+- (instancetype)initWithConnectParam:(HESocketConnectParam *)connectParam{
+    if ([super initWithConnectParam:connectParam]) {
         HESocketResponseDecoder *responseDecoder = [[HESocketResponseDecoder alloc]init];
         HESocketDelimiterDecoder *delimiterDecoder = [[HESocketDelimiterDecoder alloc]init];
         delimiterDecoder.next = responseDecoder;

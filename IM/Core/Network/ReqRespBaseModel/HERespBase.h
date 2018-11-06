@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "HESocketRespProtocol.h"
+#import "JSONModel.h"
 
-@interface HERespBase : NSObject<HESocketRespProtocol>
+@interface HERespBase : JSONModel<HESocketRespProtocol>
 
 @end

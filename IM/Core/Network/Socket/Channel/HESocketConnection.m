@@ -27,10 +27,6 @@
 
 @implementation HESocketConnection
 
-- (instancetype)init{
-    return [self initWithConnectParam:nil];
-}
-
 - (instancetype)initWithConnectParam:(HESocketConnectParam *)connectParam{
     if (self = [super init]) {
         const char *socketQueueLabel = [[NSString stringWithFormat:@"%p_socketQueue", self] cStringUsingEncoding:NSUTF8StringEncoding];
@@ -197,7 +193,8 @@
 }
 
 - (void)resetHeatBeatTimer{
-    [self tryToReconnect];
+    self.connectParam.heartbeatPolicy.currentRetryCount = 0;
+    [self tryToStartHeatBeat];
 }
 
 - (void)stopHeatBeatTimer{

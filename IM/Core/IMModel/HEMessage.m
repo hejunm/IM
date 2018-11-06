@@ -9,5 +9,7 @@
 #import "HEMessage.h"
 
 @implementation HEMessage
-
+- (NSString *)responseClassName{
+    return @"HEMessage";
+}
 @end

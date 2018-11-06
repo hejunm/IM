@@ -33,7 +33,6 @@ NS_ASSUME_NONNULL_BEGIN
 /** 代理，多播*/
 @property(nonatomic,strong)HEMulticastDelegate<HESocketConnectionDelegate> *delegate;
 
-- (instancetype)init;
 - (instancetype)initWithConnectParam:(HESocketConnectParam *)connectParam;
 
 /**

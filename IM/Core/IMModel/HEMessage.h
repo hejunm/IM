@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HEReqBase.h"
 
-@interface HEMessage : NSObject
-
+@interface HEMessage : HEReqBase
+@property(nonatomic,copy)NSString *content;
 @end

@@ -19,6 +19,13 @@
     return [[self alloc]init];
 }
 
+- (instancetype)init{
+    if (self = [super init]) {
+        self.header = [[HEReqHeader alloc]init];
+    }
+    return self;
+}
+
 #pragma mark - HESocketReqProtocol
 - (uint32_t)apiCode{
     return 0;
@@ -32,8 +39,13 @@
 }
 
 - (NSData *)serializeToData{
-    return nil;
+    return [self toJSONData];
 }
+
++ (id)responseModelWithData:(NSData *)data{
+    return [[self alloc]initWithData:data error:NULL];
+}
+
 - (NSString *)responseClassName{
     return nil;
 }

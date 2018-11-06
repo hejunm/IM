@@ -76,6 +76,15 @@
 		0EDE4F34218043C8009397A3 /* HETaskIdGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE4F33218043C8009397A3 /* HETaskIdGenerator.m */; };
 		580D2DB8217B062C001D5200 /* HEMulticastDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 580D2DB7217B062C001D5200 /* HEMulticastDelegate.m */; };
 		580D2DBC217B3CC8001D5200 /* MulticastDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 580D2DBB217B3CC8001D5200 /* MulticastDelegateTest.m */; };
+		581046F12191D68A0001BBE3 /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 581046DC2191D68A0001BBE3 /* JSONValueTransformer.m */; };
+		581046F22191D68A0001BBE3 /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 581046DF2191D68A0001BBE3 /* JSONKeyMapper.m */; };
+		581046F32191D68A0001BBE3 /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 581046E12191D68A0001BBE3 /* JSONModel.m */; };
+		581046F42191D68A0001BBE3 /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = 581046E22191D68A0001BBE3 /* JSONModelError.m */; };
+		581046F52191D68A0001BBE3 /* JSONModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 581046E52191D68A0001BBE3 /* JSONModelClassProperty.m */; };
+		581046F62191D68A0001BBE3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 581046E82191D68A0001BBE3 /* Info.plist */; };
+		581046F72191D68A0001BBE3 /* JSONHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 581046EB2191D68A0001BBE3 /* JSONHTTPClient.m */; };
+		581046F82191D68A0001BBE3 /* JSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 581046EC2191D68A0001BBE3 /* JSONAPI.m */; };
+		581046F92191D68A0001BBE3 /* JSONModel+networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 581046F02191D68A0001BBE3 /* JSONModel+networking.m */; };
 		58128F90218EA2D500B01119 /* HESocketResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 58128F8F218EA2D500B01119 /* HESocketResponse.m */; };
 		5822D980218D412900BA39B4 /* HESocketDelimiterDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5822D97F218D412900BA39B4 /* HESocketDelimiterDecoder.m */; };
 		5822D983218D41BC00BA39B4 /* HESocketDelimiterEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5822D982218D41BC00BA39B4 /* HESocketDelimiterEncoder.m */; };
@@ -245,6 +254,25 @@
 		580D2DB6217B062C001D5200 /* HEMulticastDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEMulticastDelegate.h; sourceTree = "<group>"; };
 		580D2DB7217B062C001D5200 /* HEMulticastDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HEMulticastDelegate.m; sourceTree = "<group>"; };
 		580D2DBB217B3CC8001D5200 /* MulticastDelegateTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MulticastDelegateTest.m; sourceTree = "<group>"; };
+		581046DC2191D68A0001BBE3 /* JSONValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONValueTransformer.m; sourceTree = "<group>"; };
+		581046DD2191D68A0001BBE3 /* JSONKeyMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKeyMapper.h; sourceTree = "<group>"; };
+		581046DE2191D68A0001BBE3 /* JSONValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONValueTransformer.h; sourceTree = "<group>"; };
+		581046DF2191D68A0001BBE3 /* JSONKeyMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKeyMapper.m; sourceTree = "<group>"; };
+		581046E12191D68A0001BBE3 /* JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModel.m; sourceTree = "<group>"; };
+		581046E22191D68A0001BBE3 /* JSONModelError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelError.m; sourceTree = "<group>"; };
+		581046E32191D68A0001BBE3 /* JSONModelClassProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelClassProperty.h; sourceTree = "<group>"; };
+		581046E42191D68A0001BBE3 /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModel.h; sourceTree = "<group>"; };
+		581046E52191D68A0001BBE3 /* JSONModelClassProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelClassProperty.m; sourceTree = "<group>"; };
+		581046E62191D68A0001BBE3 /* JSONModelError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelError.h; sourceTree = "<group>"; };
+		581046E72191D68A0001BBE3 /* JSONModel.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = JSONModel.modulemap; sourceTree = "<group>"; };
+		581046E82191D68A0001BBE3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		581046E92191D68A0001BBE3 /* JSONModelLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelLib.h; sourceTree = "<group>"; };
+		581046EB2191D68A0001BBE3 /* JSONHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONHTTPClient.m; sourceTree = "<group>"; };
+		581046EC2191D68A0001BBE3 /* JSONAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONAPI.m; sourceTree = "<group>"; };
+		581046ED2191D68A0001BBE3 /* JSONModel+networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONModel+networking.h"; sourceTree = "<group>"; };
+		581046EE2191D68A0001BBE3 /* JSONHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONHTTPClient.h; sourceTree = "<group>"; };
+		581046EF2191D68A0001BBE3 /* JSONAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONAPI.h; sourceTree = "<group>"; };
+		581046F02191D68A0001BBE3 /* JSONModel+networking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONModel+networking.m"; sourceTree = "<group>"; };
 		58128F8E218EA2D500B01119 /* HESocketResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HESocketResponse.h; path = IM/Core/Network/Socket/Core/HESocketResponse.h; sourceTree = SOURCE_ROOT; };
 		58128F8F218EA2D500B01119 /* HESocketResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HESocketResponse.m; path = IM/Core/Network/Socket/Core/HESocketResponse.m; sourceTree = SOURCE_ROOT; };
 		5822D97E218D412900BA39B4 /* HESocketDelimiterDecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HESocketDelimiterDecoder.h; sourceTree = "<group>"; };
@@ -419,6 +447,7 @@
 		0EB7A475217608BD0075C750 /* Verdor */ = {
 			isa = PBXGroup;
 			children = (
+				581046DA2191D68A0001BBE3 /* JSONModel */,
 				0EB61BAB21798D4400ED53BF /* Reachability */,
 				0EB7A476217608BD0075C750 /* FMDB */,
 				0EB7A486217608BD0075C750 /* SDWebImage */,
@@ -596,6 +625,56 @@
 			path = ReqRespBaseModel;
 			sourceTree = "<group>";
 		};
+		581046DA2191D68A0001BBE3 /* JSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				581046DB2191D68A0001BBE3 /* JSONModelTransformations */,
+				581046E02191D68A0001BBE3 /* JSONModel */,
+				581046E72191D68A0001BBE3 /* JSONModel.modulemap */,
+				581046E82191D68A0001BBE3 /* Info.plist */,
+				581046E92191D68A0001BBE3 /* JSONModelLib.h */,
+				581046EA2191D68A0001BBE3 /* JSONModelNetworking */,
+			);
+			path = JSONModel;
+			sourceTree = "<group>";
+		};
+		581046DB2191D68A0001BBE3 /* JSONModelTransformations */ = {
+			isa = PBXGroup;
+			children = (
+				581046DC2191D68A0001BBE3 /* JSONValueTransformer.m */,
+				581046DD2191D68A0001BBE3 /* JSONKeyMapper.h */,
+				581046DE2191D68A0001BBE3 /* JSONValueTransformer.h */,
+				581046DF2191D68A0001BBE3 /* JSONKeyMapper.m */,
+			);
+			path = JSONModelTransformations;
+			sourceTree = "<group>";
+		};
+		581046E02191D68A0001BBE3 /* JSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				581046E12191D68A0001BBE3 /* JSONModel.m */,
+				581046E22191D68A0001BBE3 /* JSONModelError.m */,
+				581046E32191D68A0001BBE3 /* JSONModelClassProperty.h */,
+				581046E42191D68A0001BBE3 /* JSONModel.h */,
+				581046E52191D68A0001BBE3 /* JSONModelClassProperty.m */,
+				581046E62191D68A0001BBE3 /* JSONModelError.h */,
+			);
+			path = JSONModel;
+			sourceTree = "<group>";
+		};
+		581046EA2191D68A0001BBE3 /* JSONModelNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				581046EB2191D68A0001BBE3 /* JSONHTTPClient.m */,
+				581046EC2191D68A0001BBE3 /* JSONAPI.m */,
+				581046ED2191D68A0001BBE3 /* JSONModel+networking.h */,
+				581046EE2191D68A0001BBE3 /* JSONHTTPClient.h */,
+				581046EF2191D68A0001BBE3 /* JSONAPI.h */,
+				581046F02191D68A0001BBE3 /* JSONModel+networking.m */,
+			);
+			path = JSONModelNetworking;
+			sourceTree = "<group>";
+		};
 		58128F8D218EA25D00B01119 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -765,6 +844,7 @@
 			files = (
 				0EB7A4B7217608BD0075C750 /* LICENSE.txt in Resources */,
 				0EB7A3F1217604C50075C750 /* LaunchScreen.storyboard in Resources */,
+				581046F62191D68A0001BBE3 /* Info.plist in Resources */,
 				0EB7A4BD217608BD0075C750 /* LICENSE in Resources */,
 				0EB7A3EE217604C50075C750 /* Assets.xcassets in Resources */,
 				0EB7A4D2217608BD0075C750 /* README.markdown in Resources */,
@@ -789,11 +869,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EB7A4B8217608BD0075C750 /* FMDatabaseQueue.m in Sources */,
+				581046F42191D68A0001BBE3 /* JSONModelError.m in Sources */,
 				0EB7A4D0217608BD0075C750 /* GCDAsyncUdpSocket.m in Sources */,
 				0EB7A4C7217608BD0075C750 /* SDImageCache.m in Sources */,
 				0E5556A4218AFC0F0037A186 /* HESocketHeartbeatPolicy.m in Sources */,
 				0E3FCEBB2177096D0025DD61 /* HEMessageReceipt.m in Sources */,
 				0EB7A4B5217608BD0075C750 /* MD5Tool.m in Sources */,
+				581046F92191D68A0001BBE3 /* JSONModel+networking.m in Sources */,
 				0ECDD430218C05DD003779A1 /* HEBaseEncoder.m in Sources */,
 				0EB7A4C8217608BD0075C750 /* SDWebImageDownloaderOperation.m in Sources */,
 				0EB7A4CD217608BD0075C750 /* UIView+WebCacheOperation.m in Sources */,
@@ -815,6 +897,7 @@
 				0E59FC49217DBE4E0017B99C /* HESocketSender.m in Sources */,
 				0EB7A4D1217608BD0075C750 /* GCDAsyncSocket.m in Sources */,
 				0EB7A4C1217608BD0075C750 /* UIImageView+HighlightedWebCache.m in Sources */,
+				581046F22191D68A0001BBE3 /* JSONKeyMapper.m in Sources */,
 				0EB7A4CE217608BD0075C750 /* UIView+WebCache.m in Sources */,
 				0EB7A4C6217608BD0075C750 /* SDWebImagePrefetcher.m in Sources */,
 				0EB7A4C9217608BD0075C750 /* NSData+ImageContentType.m in Sources */,
@@ -822,6 +905,7 @@
 				0EB5590721800D88007036E9 /* HEReqBase.m in Sources */,
 				5822D9EE218D857800BA39B4 /* NSData+Utils.m in Sources */,
 				0EB61BB12179904400ED53BF /* InternetReachabilityTool.m in Sources */,
+				581046F82191D68A0001BBE3 /* JSONAPI.m in Sources */,
 				0EB7A4C4217608BD0075C750 /* UIImage+MultiFormat.m in Sources */,
 				0EB55913218014F9007036E9 /* HESocketTask.m in Sources */,
 				0E55569B218AE1840037A186 /* HESocketConnectParam.m in Sources */,
@@ -835,10 +919,13 @@
 				5822D980218D412900BA39B4 /* HESocketDelimiterDecoder.m in Sources */,
 				0E3FCEA12176D0470025DD61 /* HEMessageFactory.m in Sources */,
 				0E3FCEDC21772C270025DD61 /* HEDeleteMessagesOption.m in Sources */,
+				581046F72191D68A0001BBE3 /* JSONHTTPClient.m in Sources */,
 				0EB5590D21800F0C007036E9 /* HEReqHeader.m in Sources */,
+				581046F32191D68A0001BBE3 /* JSONModel.m in Sources */,
 				0EB7A4BB217608BD0075C750 /* FMDatabasePool.m in Sources */,
 				0ECDD433218C05F9003779A1 /* HEBaseDecoder.m in Sources */,
 				0E3FCEE821773A0D0025DD61 /* HEUser.m in Sources */,
+				581046F12191D68A0001BBE3 /* JSONValueTransformer.m in Sources */,
 				0EB61BAE21798D4C00ED53BF /* Reachability.m in Sources */,
 				0EB7A4BC217608BD0075C750 /* FMResultSet.m in Sources */,
 				0E3FCEB82176D6850025DD61 /* HEHTTPSender.m in Sources */,
@@ -849,6 +936,7 @@
 				0EB7A4BF217608BD0075C750 /* SDWebImageManager.m in Sources */,
 				0E3FCEDF21772F1B0025DD61 /* HEMessageSearchOption.m in Sources */,
 				0EB7A3E6217604C40075C750 /* AppDelegate.m in Sources */,
+				581046F52191D68A0001BBE3 /* JSONModelClassProperty.m in Sources */,
 				5822D98B218D475F00BA39B4 /* HEProtobufVarint32LengthEncoder.m in Sources */,
 				0EB7A4C3217608BD0075C750 /* UIImage+GIF.m in Sources */,
 				0E5556A1218AF8070037A186 /* HESocketConnectPolicy.m in Sources */,

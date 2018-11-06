@@ -9,8 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "HEReqHeader.h"
 #import "HESocketReqProtocol.h"
+#import "HESocketRespProtocol.h"
+#import "JSONModel.h"
 
-@interface HEReqBase : NSObject<HESocketReqProtocol>
+@interface HEReqBase : JSONModel<HESocketReqProtocol,HESocketRespProtocol>
 
 + (instancetype)reqeustEntity;
 
