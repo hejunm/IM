@@ -23,7 +23,6 @@
 @property (nonatomic, strong)   GCDAsyncSocket *asyncSocket;
 @property (nonatomic, strong)   NSTimer *reconnectTimer;   //重连计时器
 @property (nonatomic, strong)   NSTimer *heartbeatTimer;   //心跳计时器
-@property (nonatomic, strong)   dispatch_semaphore_t connectionQueueSemaphore;  //连接线程信号量
 @end
 
 @implementation HESocketConnection
@@ -43,8 +42,6 @@
         self.delegate = (HEMulticastDelegate<HESocketConnectionDelegate> *)[[HEMulticastDelegate alloc]init];
         
         self.connectParam = connectParam;
-        
-        self.connectionQueueSemaphore = dispatch_semaphore_create(0);
     }
     return self;
 }
@@ -70,67 +67,6 @@
             [self.delegate connection:self closedWithError:error];
         }
     } async:YES];
-}
-
-
-- (void)connectWithSuccessBlock:(void (^)(void))successBlock failure:(void (^)(NSError *error))failuerBlock{
-    BOOL isOnSocketQueue = [self isOnSocketQueue];
-    
-    const char *connectQueueLabel = [[NSString stringWithFormat:@"%p_socketQueue", self] cStringUsingEncoding:NSUTF8StringEncoding];
-    dispatch_queue_t connectQueue = dispatch_queue_create(connectQueueLabel, DISPATCH_QUEUE_SERIAL);
-    dispatch_async(connectQueue, ^{
-        
-        __block NSError *error = nil;
-        [self dispatchOnSocketQueue:^{
-            self.connectionQueueSemaphore = dispatch_semaphore_create(0);
-            [self disconnect];
-            NSAssert(self.connectParam.host.length > 0, @"host is nil");
-            NSAssert(self.connectParam.port > 0, @"port is 0");
-            
-            self.asyncSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:self.socketQueue];
-            [self.asyncSocket setIPv4PreferredOverIPv6:NO];
-            [self.asyncSocket connectToHost:self.connectParam.host onPort:self.connectParam.port withTimeout:self.connectParam.connectPolicy.timeout error:&error];
-        } async:NO];
-        
-        if (error) {
-            if (isOnSocketQueue) {
-                [self dispatchOnSocketQueue:^{
-                    failuerBlock(error);
-                } async:YES];
-            }else{
-                dispatch_async(dispatch_get_main_queue(), ^{ //主线程
-                    failuerBlock(error);
-                });
-            }
-            return;
-        }
-        
-        //sleep
-        dispatch_semaphore_wait(self.connectionQueueSemaphore, DISPATCH_TIME_FOREVER);
-        
-        //在代理中唤醒
-        if ([self isConnected]) {
-            if (isOnSocketQueue) {
-                [self dispatchOnSocketQueue:^{
-                    successBlock();
-                } async:YES];
-            }else{
-                dispatch_async(dispatch_get_main_queue(), ^{ //主线程
-                    successBlock();
-                });
-            }
-        }else{
-            if (isOnSocketQueue) {
-                [self dispatchOnSocketQueue:^{
-                    failuerBlock(error);
-                } async:YES];
-            }else{
-                dispatch_async(dispatch_get_main_queue(), ^{ //主线程
-                    failuerBlock(error);
-                });
-            }
-        }
-    });
 }
 
 - (void)disconnect{
@@ -176,7 +112,7 @@
 
 - (void)didConnectToHost:(NSString *)host port:(uint16_t)port{
     [self tryToStartHeatBeat];
-    dispatch_semaphore_signal(self.connectionQueueSemaphore);
+    [self.delegate connectionOpened:self];
 }
 
 - (void)didReadWithData:(NSData *)data tag:(long)tag{
@@ -189,7 +125,6 @@
 
 #pragma mark - GCDAsyncSocketDelegate
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err{
-    dispatch_semaphore_signal(self.connectionQueueSemaphore);
     DebugLog(@"断开链接");
     [self didDisconnectWithError:err];
 }
