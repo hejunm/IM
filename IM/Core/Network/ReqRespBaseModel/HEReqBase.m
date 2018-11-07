@@ -8,6 +8,7 @@
 
 #import "HEReqBase.h"
 #import "HESocketTask.h"
+#import "YYModel.h"
 
 @interface HEReqBase()
 
@@ -39,11 +40,7 @@
 }
 
 - (NSData *)serializeToData{
-    return [self toJSONData];
-}
-
-+ (id)responseModelWithData:(NSData *)data{
-    return [[self alloc]initWithData:data error:NULL];
+    return [self yy_modelToJSONData];
 }
 
 - (NSString *)responseClassName{

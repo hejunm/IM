@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "HEReqBase.h"
 
-@interface HEMessage : HEReqBase
+@interface HEMessage : NSObject
 @property(nonatomic,copy)NSString *content;
 @end
