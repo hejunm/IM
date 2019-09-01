@@ -1,10 +1,10 @@
 //
-//  HESession.h
-//  IM
+//  NIMSession.h
+//  NIMLib
 //
-//  Created by jmhe on 2018/10/17.
-//  Copyright © 2018 贺俊孟. All rights reserved.
-//  会话
+//  Created by Netease.
+//  Copyright (c) 2015 Netease. All rights reserved.
+//
 
 #import <Foundation/Foundation.h>
 
@@ -13,31 +13,39 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  会话类型
  */
-typedef NS_ENUM(NSInteger, HESessionType){
+typedef NS_ENUM(NSInteger, NIMSessionType){
     /**
      *  点对点
      */
-    HESessionTypeP2P  = 0,
+    NIMSessionTypeP2P  = 0,
     /**
      *  群组
      */
-    HESessionTypeTeam = 1,
+    NIMSessionTypeTeam = 1,
     /**
      *  聊天室
      */
-    HESessionTypeChatroom = 2
+    NIMSessionTypeChatroom = 2
 };
 
-@interface HESession : NSObject
+
+
+
+/**
+ *  会话对象
+ */
+@interface NIMSession : NSObject<NSCopying>
+
 /**
  *  会话ID,如果当前session为team,则sessionId为teamId,如果是P2P则为对方帐号
  */
-@property (nonatomic,copy,readonly)NSString *sessionId;
+@property (nonatomic,copy,readonly)         NSString *sessionId;
 
 /**
  *  会话类型,当前仅支持P2P,Team和Chatroom
  */
-@property (nonatomic,assign,readonly)HESessionType sessionType;
+@property (nonatomic,assign,readonly)       NIMSessionType sessionType;
+
 
 /**
  *  通过id和type构造会话对象
@@ -48,7 +56,9 @@ typedef NS_ENUM(NSInteger, HESessionType){
  *  @return 会话对象实例
  */
 + (instancetype)session:(NSString *)sessionId
-                   type:(HESessionType)sessionType;
+                   type:(NIMSessionType)sessionType;
+
 @end
 
 NS_ASSUME_NONNULL_END
+

@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E3FCEA12176D0470025DD61 /* HEMessageFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCEA02176D0470025DD61 /* HEMessageFactory.m */; };
 		0E3FCEB82176D6850025DD61 /* HEHTTPSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCEB72176D6850025DD61 /* HEHTTPSender.m */; };
 		0E3FCEBB2177096D0025DD61 /* HEMessageReceipt.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCEBA2177096D0025DD61 /* HEMessageReceipt.m */; };
-		0E3FCEBE217709D80025DD61 /* HESession.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCEBD217709D80025DD61 /* HESession.m */; };
+		0E3FCEBE217709D80025DD61 /* NIMSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCEBD217709D80025DD61 /* NIMSession.m */; };
 		0E3FCED5217720040025DD61 /* HETeamMessageReceiptDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCED4217720040025DD61 /* HETeamMessageReceiptDetail.m */; };
 		0E3FCED821772A3D0025DD61 /* HERecentSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCED721772A3D0025DD61 /* HERecentSession.m */; };
 		0E3FCEDC21772C270025DD61 /* HEDeleteMessagesOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCEDB21772C270025DD61 /* HEDeleteMessagesOption.m */; };
@@ -68,9 +67,8 @@
 		0EB7A4D0217608BD0075C750 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A4B0217608BD0075C750 /* GCDAsyncUdpSocket.m */; };
 		0EB7A4D1217608BD0075C750 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A4B1217608BD0075C750 /* GCDAsyncSocket.m */; };
 		0EB7A4D2217608BD0075C750 /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 0EB7A4B4217608BD0075C750 /* README.markdown */; };
-		0EB7A53B21760C180075C750 /* HEMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A53A21760C180075C750 /* HEMessage.m */; };
+		0EB7A53B21760C180075C750 /* NIMMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A53A21760C180075C750 /* NIMMessage.m */; };
 		0EB7A53E21760E010075C750 /* HEIMSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A53D21760E010075C750 /* HEIMSDK.m */; };
-		0EB7A54C2176170A0075C750 /* HELoginClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7A54B2176170A0075C750 /* HELoginClient.m */; };
 		0ECDD430218C05DD003779A1 /* HEBaseEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ECDD42F218C05DD003779A1 /* HEBaseEncoder.m */; };
 		0ECDD433218C05F9003779A1 /* HEBaseDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ECDD432218C05F9003779A1 /* HEBaseDecoder.m */; };
 		0EDE4F34218043C8009397A3 /* HETaskIdGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE4F33218043C8009397A3 /* HETaskIdGenerator.m */; };
@@ -93,6 +91,15 @@
 		5822D98E218D47D000BA39B4 /* HEProtobufVarint32LengthDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5822D98D218D47D000BA39B4 /* HEProtobufVarint32LengthDecoder.m */; };
 		5822D9EE218D857800BA39B4 /* NSData+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5822D9ED218D857800BA39B4 /* NSData+Utils.m */; };
 		5822D9F1218DF53700BA39B4 /* HESocketResponseDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5822D9F0218DF53700BA39B4 /* HESocketResponseDecoder.m */; };
+		58F67F4C23110D3A00CA3B4F /* NIMMessageMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F67F4B23110D3A00CA3B4F /* NIMMessageMaker.m */; };
+		58F67F532311156700CA3B4F /* NIMLoginClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F67F522311156700CA3B4F /* NIMLoginClient.m */; };
+		58F67F5F23111B2600CA3B4F /* NIMAudioObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F67F5E23111B2600CA3B4F /* NIMAudioObject.m */; };
+		58F67F6123111B3500CA3B4F /* NIMVideoObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F67F6023111B3500CA3B4F /* NIMVideoObject.m */; };
+		58F67F6323111B4200CA3B4F /* NIMFileObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F67F6223111B4200CA3B4F /* NIMFileObject.m */; };
+		58F67F6523111B5000CA3B4F /* NIMImageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F67F6423111B5000CA3B4F /* NIMImageObject.m */; };
+		58F67F6723111B5B00CA3B4F /* NIMCustomObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F67F6623111B5B00CA3B4F /* NIMCustomObject.m */; };
+		58F67F6923111B6A00CA3B4F /* NIMLocationObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F67F6823111B6A00CA3B4F /* NIMLocationObject.m */; };
+		58F67F7223111F8A00CA3B4F /* NIMKitLocationPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F67F7123111F8A00CA3B4F /* NIMKitLocationPoint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,14 +113,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0E3FCE9F2176D0470025DD61 /* HEMessageFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEMessageFactory.h; sourceTree = "<group>"; };
-		0E3FCEA02176D0470025DD61 /* HEMessageFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HEMessageFactory.m; sourceTree = "<group>"; };
 		0E3FCEB62176D6850025DD61 /* HEHTTPSender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEHTTPSender.h; sourceTree = "<group>"; };
 		0E3FCEB72176D6850025DD61 /* HEHTTPSender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HEHTTPSender.m; sourceTree = "<group>"; };
 		0E3FCEB92177096D0025DD61 /* HEMessageReceipt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEMessageReceipt.h; sourceTree = "<group>"; };
 		0E3FCEBA2177096D0025DD61 /* HEMessageReceipt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HEMessageReceipt.m; sourceTree = "<group>"; };
-		0E3FCEBC217709D80025DD61 /* HESession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HESession.h; sourceTree = "<group>"; };
-		0E3FCEBD217709D80025DD61 /* HESession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HESession.m; sourceTree = "<group>"; };
+		0E3FCEBC217709D80025DD61 /* NIMSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NIMSession.h; sourceTree = "<group>"; };
+		0E3FCEBD217709D80025DD61 /* NIMSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NIMSession.m; sourceTree = "<group>"; };
 		0E3FCED3217720040025DD61 /* HETeamMessageReceiptDetail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HETeamMessageReceiptDetail.h; sourceTree = "<group>"; };
 		0E3FCED4217720040025DD61 /* HETeamMessageReceiptDetail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HETeamMessageReceiptDetail.m; sourceTree = "<group>"; };
 		0E3FCED621772A3D0025DD61 /* HERecentSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HERecentSession.h; sourceTree = "<group>"; };
@@ -227,8 +232,8 @@
 		0EB7A4B3217608BD0075C750 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
 		0EB7A4B4217608BD0075C750 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
 		0EB7A53721760BC20075C750 /* HEChatManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEChatManagerProtocol.h; sourceTree = "<group>"; };
-		0EB7A53921760C180075C750 /* HEMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEMessage.h; sourceTree = "<group>"; };
-		0EB7A53A21760C180075C750 /* HEMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HEMessage.m; sourceTree = "<group>"; };
+		0EB7A53921760C180075C750 /* NIMMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NIMMessage.h; sourceTree = "<group>"; };
+		0EB7A53A21760C180075C750 /* NIMMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NIMMessage.m; sourceTree = "<group>"; };
 		0EB7A53C21760E010075C750 /* HEIMSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEIMSDK.h; sourceTree = "<group>"; };
 		0EB7A53D21760E010075C750 /* HEIMSDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HEIMSDK.m; sourceTree = "<group>"; };
 		0EB7A53F21760E960075C750 /* HELoginManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HELoginManagerProtocol.h; sourceTree = "<group>"; };
@@ -241,8 +246,6 @@
 		0EB7A546217612140075C750 /* HEResourceManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEResourceManagerProtocol.h; sourceTree = "<group>"; };
 		0EB7A5472176122E0075C750 /* HETeamManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HETeamManagerProtocol.h; sourceTree = "<group>"; };
 		0EB7A548217612460075C750 /* HEUserManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEUserManagerProtocol.h; sourceTree = "<group>"; };
-		0EB7A54A2176170A0075C750 /* HELoginClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HELoginClient.h; sourceTree = "<group>"; };
-		0EB7A54B2176170A0075C750 /* HELoginClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HELoginClient.m; sourceTree = "<group>"; };
 		0ECDD42B218BE795003779A1 /* HESocketReqProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HESocketReqProtocol.h; sourceTree = "<group>"; };
 		0ECDD42D218BEA54003779A1 /* HESocketRespProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HESocketRespProtocol.h; sourceTree = "<group>"; };
 		0ECDD42E218C05DD003779A1 /* HEBaseEncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEBaseEncoder.h; sourceTree = "<group>"; };
@@ -289,6 +292,26 @@
 		5822D9ED218D857800BA39B4 /* NSData+Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+Utils.m"; sourceTree = "<group>"; };
 		5822D9EF218DF53700BA39B4 /* HESocketResponseDecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HESocketResponseDecoder.h; sourceTree = "<group>"; };
 		5822D9F0218DF53700BA39B4 /* HESocketResponseDecoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HESocketResponseDecoder.m; sourceTree = "<group>"; };
+		58F67F4A23110D3A00CA3B4F /* NIMMessageMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMMessageMaker.h; sourceTree = "<group>"; };
+		58F67F4B23110D3A00CA3B4F /* NIMMessageMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIMMessageMaker.m; sourceTree = "<group>"; };
+		58F67F4D23110F2200CA3B4F /* NIMGlobalDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMGlobalDefs.h; sourceTree = "<group>"; };
+		58F67F502311137600CA3B4F /* NIMMessageObjectProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMMessageObjectProtocol.h; sourceTree = "<group>"; };
+		58F67F512311155200CA3B4F /* NIMLoginClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMLoginClient.h; sourceTree = "<group>"; };
+		58F67F522311156700CA3B4F /* NIMLoginClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NIMLoginClient.m; sourceTree = "<group>"; };
+		58F67F55231119BD00CA3B4F /* NIMAudioObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMAudioObject.h; sourceTree = "<group>"; };
+		58F67F56231119ED00CA3B4F /* NIMVideoObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMVideoObject.h; sourceTree = "<group>"; };
+		58F67F57231119FE00CA3B4F /* NIMFileObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMFileObject.h; sourceTree = "<group>"; };
+		58F67F5823111A1300CA3B4F /* NIMImageObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMImageObject.h; sourceTree = "<group>"; };
+		58F67F5923111A7000CA3B4F /* NIMCustomObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMCustomObject.h; sourceTree = "<group>"; };
+		58F67F5A23111A9600CA3B4F /* NIMLocationObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMLocationObject.h; sourceTree = "<group>"; };
+		58F67F5E23111B2600CA3B4F /* NIMAudioObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NIMAudioObject.m; sourceTree = "<group>"; };
+		58F67F6023111B3500CA3B4F /* NIMVideoObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NIMVideoObject.m; sourceTree = "<group>"; };
+		58F67F6223111B4200CA3B4F /* NIMFileObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NIMFileObject.m; sourceTree = "<group>"; };
+		58F67F6423111B5000CA3B4F /* NIMImageObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NIMImageObject.m; sourceTree = "<group>"; };
+		58F67F6623111B5B00CA3B4F /* NIMCustomObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NIMCustomObject.m; sourceTree = "<group>"; };
+		58F67F6823111B6A00CA3B4F /* NIMLocationObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NIMLocationObject.m; sourceTree = "<group>"; };
+		58F67F7023111F8900CA3B4F /* NIMKitLocationPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMKitLocationPoint.h; sourceTree = "<group>"; };
+		58F67F7123111F8A00CA3B4F /* NIMKitLocationPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIMKitLocationPoint.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -397,9 +420,11 @@
 			isa = PBXGroup;
 			children = (
 				0EB7A5492176148F0075C750 /* Network */,
+				58F67F732311336F00CA3B4F /* ManagerImp */,
+				0EB7A474217608BD0075C750 /* Protocols */,
 				0EB7A470217608BD0075C750 /* Utils */,
 				0EB7A53821760BF20075C750 /* IMModel */,
-				0EB7A474217608BD0075C750 /* Protocols */,
+				58F67F4D23110F2200CA3B4F /* NIMGlobalDefs.h */,
 				0EB7A53C21760E010075C750 /* HEIMSDK.h */,
 				0EB7A53D21760E010075C750 /* HEIMSDK.m */,
 				0E9D7FEB217754CF00B79A56 /* HEDefine.h */,
@@ -574,16 +599,11 @@
 		0EB7A53821760BF20075C750 /* IMModel */ = {
 			isa = PBXGroup;
 			children = (
-				0EB7A53921760C180075C750 /* HEMessage.h */,
-				0EB7A53A21760C180075C750 /* HEMessage.m */,
-				0EB7A54A2176170A0075C750 /* HELoginClient.h */,
-				0EB7A54B2176170A0075C750 /* HELoginClient.m */,
-				0E3FCE9F2176D0470025DD61 /* HEMessageFactory.h */,
-				0E3FCEA02176D0470025DD61 /* HEMessageFactory.m */,
+				58F67F4E2311100C00CA3B4F /* Session */,
+				58F67F4923110CBB00CA3B4F /* Message */,
+				58F67F542311169400CA3B4F /* Login */,
 				0E3FCEB92177096D0025DD61 /* HEMessageReceipt.h */,
 				0E3FCEBA2177096D0025DD61 /* HEMessageReceipt.m */,
-				0E3FCEBC217709D80025DD61 /* HESession.h */,
-				0E3FCEBD217709D80025DD61 /* HESession.m */,
 				0E3FCED3217720040025DD61 /* HETeamMessageReceiptDetail.h */,
 				0E3FCED4217720040025DD61 /* HETeamMessageReceiptDetail.m */,
 				0E3FCED621772A3D0025DD61 /* HERecentSession.h */,
@@ -762,6 +782,65 @@
 			path = Delimiter;
 			sourceTree = "<group>";
 		};
+		58F67F4923110CBB00CA3B4F /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				58F67F4F231112F200CA3B4F /* MessageContent */,
+				58F67F4A23110D3A00CA3B4F /* NIMMessageMaker.h */,
+				58F67F4B23110D3A00CA3B4F /* NIMMessageMaker.m */,
+				0EB7A53921760C180075C750 /* NIMMessage.h */,
+				0EB7A53A21760C180075C750 /* NIMMessage.m */,
+			);
+			name = Message;
+			sourceTree = "<group>";
+		};
+		58F67F4E2311100C00CA3B4F /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				0E3FCEBC217709D80025DD61 /* NIMSession.h */,
+				0E3FCEBD217709D80025DD61 /* NIMSession.m */,
+			);
+			name = Session;
+			sourceTree = "<group>";
+		};
+		58F67F4F231112F200CA3B4F /* MessageContent */ = {
+			isa = PBXGroup;
+			children = (
+				58F67F502311137600CA3B4F /* NIMMessageObjectProtocol.h */,
+				58F67F5823111A1300CA3B4F /* NIMImageObject.h */,
+				58F67F6423111B5000CA3B4F /* NIMImageObject.m */,
+				58F67F55231119BD00CA3B4F /* NIMAudioObject.h */,
+				58F67F5E23111B2600CA3B4F /* NIMAudioObject.m */,
+				58F67F56231119ED00CA3B4F /* NIMVideoObject.h */,
+				58F67F6023111B3500CA3B4F /* NIMVideoObject.m */,
+				58F67F57231119FE00CA3B4F /* NIMFileObject.h */,
+				58F67F6223111B4200CA3B4F /* NIMFileObject.m */,
+				58F67F5A23111A9600CA3B4F /* NIMLocationObject.h */,
+				58F67F6823111B6A00CA3B4F /* NIMLocationObject.m */,
+				58F67F7023111F8900CA3B4F /* NIMKitLocationPoint.h */,
+				58F67F7123111F8A00CA3B4F /* NIMKitLocationPoint.m */,
+				58F67F5923111A7000CA3B4F /* NIMCustomObject.h */,
+				58F67F6623111B5B00CA3B4F /* NIMCustomObject.m */,
+			);
+			name = MessageContent;
+			sourceTree = "<group>";
+		};
+		58F67F542311169400CA3B4F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				58F67F512311155200CA3B4F /* NIMLoginClient.h */,
+				58F67F522311156700CA3B4F /* NIMLoginClient.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		58F67F732311336F00CA3B4F /* ManagerImp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ManagerImp;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -871,6 +950,7 @@
 				0EB7A4B8217608BD0075C750 /* FMDatabaseQueue.m in Sources */,
 				581046F42191D68A0001BBE3 /* JSONModelError.m in Sources */,
 				0EB7A4D0217608BD0075C750 /* GCDAsyncUdpSocket.m in Sources */,
+				58F67F7223111F8A00CA3B4F /* NIMKitLocationPoint.m in Sources */,
 				0EB7A4C7217608BD0075C750 /* SDImageCache.m in Sources */,
 				0E5556A4218AFC0F0037A186 /* HESocketHeartbeatPolicy.m in Sources */,
 				0E3FCEBB2177096D0025DD61 /* HEMessageReceipt.m in Sources */,
@@ -879,26 +959,30 @@
 				0ECDD430218C05DD003779A1 /* HEBaseEncoder.m in Sources */,
 				0EB7A4C8217608BD0075C750 /* SDWebImageDownloaderOperation.m in Sources */,
 				0EB7A4CD217608BD0075C750 /* UIView+WebCacheOperation.m in Sources */,
-				0EB7A54C2176170A0075C750 /* HELoginClient.m in Sources */,
 				5822D983218D41BC00BA39B4 /* HESocketDelimiterEncoder.m in Sources */,
 				5822D9F1218DF53700BA39B4 /* HESocketResponseDecoder.m in Sources */,
 				0E555691218AB6BB0037A186 /* HESocketChannel.m in Sources */,
 				0E55569E218AE68F0037A186 /* HESocketConnection.m in Sources */,
 				0EB5591021800F1A007036E9 /* HERespHeader.m in Sources */,
+				58F67F6523111B5000CA3B4F /* NIMImageObject.m in Sources */,
 				0EB5590A21800DCB007036E9 /* HERespBase.m in Sources */,
 				0E3FCED5217720040025DD61 /* HETeamMessageReceiptDetail.m in Sources */,
 				0EB7A4CB217608BD0075C750 /* NSImage+WebCache.m in Sources */,
 				0EB7A3E9217604C40075C750 /* ViewController.m in Sources */,
+				58F67F5F23111B2600CA3B4F /* NIMAudioObject.m in Sources */,
 				0EB7A4BA217608BD0075C750 /* FMDatabase.m in Sources */,
 				0E3FCED821772A3D0025DD61 /* HERecentSession.m in Sources */,
 				0EB7A3F4217604C50075C750 /* main.m in Sources */,
 				0EB7A4CF217608BD0075C750 /* UIButton+WebCache.m in Sources */,
+				58F67F4C23110D3A00CA3B4F /* NIMMessageMaker.m in Sources */,
 				0EB7A4C0217608BD0075C750 /* SDWebImageDecoder.m in Sources */,
 				0E59FC49217DBE4E0017B99C /* HESocketSender.m in Sources */,
 				0EB7A4D1217608BD0075C750 /* GCDAsyncSocket.m in Sources */,
 				0EB7A4C1217608BD0075C750 /* UIImageView+HighlightedWebCache.m in Sources */,
 				581046F22191D68A0001BBE3 /* JSONKeyMapper.m in Sources */,
 				0EB7A4CE217608BD0075C750 /* UIView+WebCache.m in Sources */,
+				58F67F532311156700CA3B4F /* NIMLoginClient.m in Sources */,
+				58F67F6723111B5B00CA3B4F /* NIMCustomObject.m in Sources */,
 				0EB7A4C6217608BD0075C750 /* SDWebImagePrefetcher.m in Sources */,
 				0EB7A4C9217608BD0075C750 /* NSData+ImageContentType.m in Sources */,
 				0EB7A4CA217608BD0075C750 /* UIImageView+WebCache.m in Sources */,
@@ -917,7 +1001,6 @@
 				58128F90218EA2D500B01119 /* HESocketResponse.m in Sources */,
 				0EB7A4C5217608BD0075C750 /* SDWebImageCompat.m in Sources */,
 				5822D980218D412900BA39B4 /* HESocketDelimiterDecoder.m in Sources */,
-				0E3FCEA12176D0470025DD61 /* HEMessageFactory.m in Sources */,
 				0E3FCEDC21772C270025DD61 /* HEDeleteMessagesOption.m in Sources */,
 				581046F72191D68A0001BBE3 /* JSONHTTPClient.m in Sources */,
 				0EB5590D21800F0C007036E9 /* HEReqHeader.m in Sources */,
@@ -926,10 +1009,11 @@
 				0ECDD433218C05F9003779A1 /* HEBaseDecoder.m in Sources */,
 				0E3FCEE821773A0D0025DD61 /* HEUser.m in Sources */,
 				581046F12191D68A0001BBE3 /* JSONValueTransformer.m in Sources */,
+				58F67F6323111B4200CA3B4F /* NIMFileObject.m in Sources */,
 				0EB61BAE21798D4C00ED53BF /* Reachability.m in Sources */,
 				0EB7A4BC217608BD0075C750 /* FMResultSet.m in Sources */,
 				0E3FCEB82176D6850025DD61 /* HEHTTPSender.m in Sources */,
-				0EB7A53B21760C180075C750 /* HEMessage.m in Sources */,
+				0EB7A53B21760C180075C750 /* NIMMessage.m in Sources */,
 				0EDE4F34218043C8009397A3 /* HETaskIdGenerator.m in Sources */,
 				0EB7A53E21760E010075C750 /* HEIMSDK.m in Sources */,
 				5822D987218D461B00BA39B4 /* HESocketRequestEncoder.m in Sources */,
@@ -937,11 +1021,13 @@
 				0E3FCEDF21772F1B0025DD61 /* HEMessageSearchOption.m in Sources */,
 				0EB7A3E6217604C40075C750 /* AppDelegate.m in Sources */,
 				581046F52191D68A0001BBE3 /* JSONModelClassProperty.m in Sources */,
+				58F67F6923111B6A00CA3B4F /* NIMLocationObject.m in Sources */,
 				5822D98B218D475F00BA39B4 /* HEProtobufVarint32LengthEncoder.m in Sources */,
 				0EB7A4C3217608BD0075C750 /* UIImage+GIF.m in Sources */,
 				0E5556A1218AF8070037A186 /* HESocketConnectPolicy.m in Sources */,
 				0EB7A4B9217608BD0075C750 /* FMDatabaseAdditions.m in Sources */,
-				0E3FCEBE217709D80025DD61 /* HESession.m in Sources */,
+				0E3FCEBE217709D80025DD61 /* NIMSession.m in Sources */,
+				58F67F6123111B3500CA3B4F /* NIMVideoObject.m in Sources */,
 				580D2DB8217B062C001D5200 /* HEMulticastDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

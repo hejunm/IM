@@ -1,82 +1,81 @@
 //
-//  HELoginClient.h
-//  IM
+//  NIMLoginClient.h
+//  NIMLib
 //
-//  Created by jmhe on 2018/10/16.
-//  Copyright © 2018 贺俊孟. All rights reserved.
+//  Created by Netease.
+//  Copyright (c) 2015 Netease. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
+
 /**
  *  客户端类型
  */
-typedef NS_ENUM(NSInteger, HELoginClientType) {
+typedef NS_ENUM(NSInteger, NIMLoginClientType) {
     
     /**
      *  未知类型
      */
-    HELoginClientTypeUnknown    = 0,
+    NIMLoginClientTypeUnknown    = 0,
     /**
      *  Android
      */
-    HELoginClientTypeAOS         = 1,
+    NIMLoginClientTypeAOS         = 1,
     /**
      *  iOS
      */
-    HELoginClientTypeiOS         = 2,
+    NIMLoginClientTypeiOS         = 2,
     /**
      *  PC
      */
-    HELoginClientTypePC          = 4,
+    NIMLoginClientTypePC          = 4,
     /**
      *  WP
      */
-    HELoginClientTypeWP          = 8,
+    NIMLoginClientTypeWP          = 8,
     /**
      *  WEB
      */
-    HELoginClientTypeWeb         = 16,
+    NIMLoginClientTypeWeb         = 16,
     /**
      *  REST API
      */
-    HELoginClientTypeRestful     = 32,
+    NIMLoginClientTypeRestful     = 32,
     /**
      *  macOS
      */
-    HELoginClientTypemacOS       = 64,
+    NIMLoginClientTypemacOS       = 64,
 };
 
 
 /**
  *  登录客户端描述
  */
-@interface HELoginClient : NSObject
-
+@interface NIMLoginClient : NSObject
 /**
  *  类型
  */
-@property (nonatomic,assign,readonly)HELoginClientType  type;
-
+@property (nonatomic,assign,readonly)   NIMLoginClientType      type;
 /**
  *  操作系统
  */
-@property (nullable,nonatomic,copy)NSString *os;
-
+@property (nullable,nonatomic,copy,readonly)     NSString                *os;
 /**
  *  登录时间
  */
-@property (nonatomic,assign,readonly)NSTimeInterval     timestamp;
-
+@property (nonatomic,assign,readonly)   NSTimeInterval          timestamp;
 @end
+
+
 
 
 /**
  *  自动登录参数
  */
-@interface HEAutoLoginData : NSObject
+@interface NIMAutoLoginData : NSObject
 /**
  *  账号
  */
@@ -97,4 +96,6 @@ typedef NS_ENUM(NSInteger, HELoginClientType) {
 @property (nonatomic,assign)    BOOL        forcedMode;
 
 @end
+
 NS_ASSUME_NONNULL_END
+
