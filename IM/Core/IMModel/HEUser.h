@@ -52,7 +52,7 @@ typedef NS_ENUM(NSInteger, HEUserGender) {
 };
 
 /**
- *  云信用户
+ *  用户
  */
 @interface HEUser : NSObject
 

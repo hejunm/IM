@@ -7,7 +7,12 @@
 //
 
 #import "HERespBase.h"
+#import "YYModel.h"
 
 @implementation HERespBase
+
++ (id)responseModelWithData:(NSData *)data{
+    return [self yy_modelWithJSON:data];
+}
 
 @end

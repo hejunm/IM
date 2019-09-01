@@ -7,11 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JSONModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HERespHeader : JSONModel
+@interface HERespHeader : NSObject
 
 @end
 
